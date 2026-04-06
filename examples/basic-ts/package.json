@@ -1,10 +1,12 @@
 {
-    "name": "basic",
+    "name": "basic-ts-akeyless-smoke",
     "main": "index.ts",
     "devDependencies": {
-        "@types/node": "^18"
+        "@types/node": "^18",
+        "typescript": "^4.9.0"
     },
     "dependencies": {
-        "@pulumi/pulumi": "3.221.0"
+        "@pulumi/pulumi": "^3.221.0",
+        "@pulumi/akeyless": "0.0.0"
     }
 }

@@ -31,9 +31,15 @@ sdk/java/gradlew
 sdk/java/gradlew.bat
 
 sdk/python/venv
+examples/**/venv
+**/__pycache__/
+*.py[cod]
 
 go.work
 go.work.sum
 
 # Ignore local build tracking directory
 .make
+
+# Go test binary from `go test -c` in examples/
+examples/examples.test

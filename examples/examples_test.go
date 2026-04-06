@@ -14,9 +14,14 @@ import (
 func getJSBaseOptions(t *testing.T) integration.ProgramTestOptions {
 	t.Helper()
 	base := getBaseOptions(t)
+	// Dependencies are for `yarn link <pkg>` (globally linked packages only), not file: paths.
+	// Overrides rewrites package.json + resolutions so `yarn install` pulls the local SDK.
+	sdkNodeBin, err := filepath.Abs(filepath.Join(getCwd(t), "..", "sdk", "nodejs", "bin"))
+	require.NoError(t, err)
+	fileRef := "file:" + filepath.ToSlash(sdkNodeBin)
 	baseJS := base.With(integration.ProgramTestOptions{
-		Dependencies: []string{
-			"@pulumi/xyz",
+		Overrides: map[string]string{
+			"@pulumi/akeyless": fileRef,
 		},
 	})
 
@@ -28,7 +33,7 @@ func getPythonBaseOptions(t *testing.T) integration.ProgramTestOptions {
 	base := getBaseOptions(t)
 	basePython := base.With(integration.ProgramTestOptions{
 		Dependencies: []string{
-			filepath.Join("..", "sdk", "python", "bin"),
+			filepath.Join("..", "sdk", "python"),
 		},
 	})
 
@@ -49,7 +54,7 @@ func getGoBaseOptions(t *testing.T) integration.ProgramTestOptions {
 	base := getBaseOptions(t)
 	baseJS := base.With(integration.ProgramTestOptions{
 		Dependencies: []string{
-			fmt.Sprintf("github.com/pulumi/pulumi-xyz/sdk=%s", rootSdkPath),
+			fmt.Sprintf("github.com/akeyless-community/pulumi-akeyless/sdk=%s", rootSdkPath),
 		},
 		Env: []string{
 			fmt.Sprintf("PULUMI_GO_DEP_ROOT=%s", goDepRoot),
@@ -90,7 +95,7 @@ func getBaseOptions(t *testing.T) integration.ProgramTestOptions {
 	return integration.ProgramTestOptions{
 		LocalProviders: []integration.LocalDependency{
 			{
-				Package: "xyz",
+				Package: "akeyless",
 				Path:    binPath,
 			},
 		},

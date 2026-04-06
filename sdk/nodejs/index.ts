@@ -5,28 +5,716 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 // Export members:
-export { GetDataSourceArgs, GetDataSourceResult, GetDataSourceOutputArgs } from "./getDataSource";
-export const getDataSource: typeof import("./getDataSource").getDataSource = null as any;
-export const getDataSourceOutput: typeof import("./getDataSource").getDataSourceOutput = null as any;
-utilities.lazyLoad(exports, ["getDataSource","getDataSourceOutput"], () => require("./getDataSource"));
+export { AssociateRoleAuthMethodArgs, AssociateRoleAuthMethodState } from "./associateRoleAuthMethod";
+export type AssociateRoleAuthMethod = import("./associateRoleAuthMethod").AssociateRoleAuthMethod;
+export const AssociateRoleAuthMethod: typeof import("./associateRoleAuthMethod").AssociateRoleAuthMethod = null as any;
+utilities.lazyLoad(exports, ["AssociateRoleAuthMethod"], () => require("./associateRoleAuthMethod"));
+
+export { AuthMethodArgs, AuthMethodState } from "./authMethod";
+export type AuthMethod = import("./authMethod").AuthMethod;
+export const AuthMethod: typeof import("./authMethod").AuthMethod = null as any;
+utilities.lazyLoad(exports, ["AuthMethod"], () => require("./authMethod"));
+
+export { AuthMethodApiKeyArgs, AuthMethodApiKeyState } from "./authMethodApiKey";
+export type AuthMethodApiKey = import("./authMethodApiKey").AuthMethodApiKey;
+export const AuthMethodApiKey: typeof import("./authMethodApiKey").AuthMethodApiKey = null as any;
+utilities.lazyLoad(exports, ["AuthMethodApiKey"], () => require("./authMethodApiKey"));
+
+export { AuthMethodAwsIamArgs, AuthMethodAwsIamState } from "./authMethodAwsIam";
+export type AuthMethodAwsIam = import("./authMethodAwsIam").AuthMethodAwsIam;
+export const AuthMethodAwsIam: typeof import("./authMethodAwsIam").AuthMethodAwsIam = null as any;
+utilities.lazyLoad(exports, ["AuthMethodAwsIam"], () => require("./authMethodAwsIam"));
+
+export { AuthMethodAzureAdArgs, AuthMethodAzureAdState } from "./authMethodAzureAd";
+export type AuthMethodAzureAd = import("./authMethodAzureAd").AuthMethodAzureAd;
+export const AuthMethodAzureAd: typeof import("./authMethodAzureAd").AuthMethodAzureAd = null as any;
+utilities.lazyLoad(exports, ["AuthMethodAzureAd"], () => require("./authMethodAzureAd"));
+
+export { AuthMethodCertArgs, AuthMethodCertState } from "./authMethodCert";
+export type AuthMethodCert = import("./authMethodCert").AuthMethodCert;
+export const AuthMethodCert: typeof import("./authMethodCert").AuthMethodCert = null as any;
+utilities.lazyLoad(exports, ["AuthMethodCert"], () => require("./authMethodCert"));
+
+export { AuthMethodGcpArgs, AuthMethodGcpState } from "./authMethodGcp";
+export type AuthMethodGcp = import("./authMethodGcp").AuthMethodGcp;
+export const AuthMethodGcp: typeof import("./authMethodGcp").AuthMethodGcp = null as any;
+utilities.lazyLoad(exports, ["AuthMethodGcp"], () => require("./authMethodGcp"));
+
+export { AuthMethodK8sArgs, AuthMethodK8sState } from "./authMethodK8s";
+export type AuthMethodK8s = import("./authMethodK8s").AuthMethodK8s;
+export const AuthMethodK8s: typeof import("./authMethodK8s").AuthMethodK8s = null as any;
+utilities.lazyLoad(exports, ["AuthMethodK8s"], () => require("./authMethodK8s"));
+
+export { AuthMethodLdapArgs, AuthMethodLdapState } from "./authMethodLdap";
+export type AuthMethodLdap = import("./authMethodLdap").AuthMethodLdap;
+export const AuthMethodLdap: typeof import("./authMethodLdap").AuthMethodLdap = null as any;
+utilities.lazyLoad(exports, ["AuthMethodLdap"], () => require("./authMethodLdap"));
+
+export { AuthMethodOauth2Args, AuthMethodOauth2State } from "./authMethodOauth2";
+export type AuthMethodOauth2 = import("./authMethodOauth2").AuthMethodOauth2;
+export const AuthMethodOauth2: typeof import("./authMethodOauth2").AuthMethodOauth2 = null as any;
+utilities.lazyLoad(exports, ["AuthMethodOauth2"], () => require("./authMethodOauth2"));
+
+export { AuthMethodOidcArgs, AuthMethodOidcState } from "./authMethodOidc";
+export type AuthMethodOidc = import("./authMethodOidc").AuthMethodOidc;
+export const AuthMethodOidc: typeof import("./authMethodOidc").AuthMethodOidc = null as any;
+utilities.lazyLoad(exports, ["AuthMethodOidc"], () => require("./authMethodOidc"));
+
+export { AuthMethodSamlArgs, AuthMethodSamlState } from "./authMethodSaml";
+export type AuthMethodSaml = import("./authMethodSaml").AuthMethodSaml;
+export const AuthMethodSaml: typeof import("./authMethodSaml").AuthMethodSaml = null as any;
+utilities.lazyLoad(exports, ["AuthMethodSaml"], () => require("./authMethodSaml"));
+
+export { AuthMethodUniversalIdentityArgs, AuthMethodUniversalIdentityState } from "./authMethodUniversalIdentity";
+export type AuthMethodUniversalIdentity = import("./authMethodUniversalIdentity").AuthMethodUniversalIdentity;
+export const AuthMethodUniversalIdentity: typeof import("./authMethodUniversalIdentity").AuthMethodUniversalIdentity = null as any;
+utilities.lazyLoad(exports, ["AuthMethodUniversalIdentity"], () => require("./authMethodUniversalIdentity"));
+
+export { CertificateArgs, CertificateState } from "./certificate";
+export type Certificate = import("./certificate").Certificate;
+export const Certificate: typeof import("./certificate").Certificate = null as any;
+utilities.lazyLoad(exports, ["Certificate"], () => require("./certificate"));
+
+export { ClassicKeyArgs, ClassicKeyState } from "./classicKey";
+export type ClassicKey = import("./classicKey").ClassicKey;
+export const ClassicKey: typeof import("./classicKey").ClassicKey = null as any;
+utilities.lazyLoad(exports, ["ClassicKey"], () => require("./classicKey"));
+
+export { DfcKeyArgs, DfcKeyState } from "./dfcKey";
+export type DfcKey = import("./dfcKey").DfcKey;
+export const DfcKey: typeof import("./dfcKey").DfcKey = null as any;
+utilities.lazyLoad(exports, ["DfcKey"], () => require("./dfcKey"));
+
+export { DynamicSecretArtifactoryArgs, DynamicSecretArtifactoryState } from "./dynamicSecretArtifactory";
+export type DynamicSecretArtifactory = import("./dynamicSecretArtifactory").DynamicSecretArtifactory;
+export const DynamicSecretArtifactory: typeof import("./dynamicSecretArtifactory").DynamicSecretArtifactory = null as any;
+utilities.lazyLoad(exports, ["DynamicSecretArtifactory"], () => require("./dynamicSecretArtifactory"));
+
+export { DynamicSecretAwsArgs, DynamicSecretAwsState } from "./dynamicSecretAws";
+export type DynamicSecretAws = import("./dynamicSecretAws").DynamicSecretAws;
+export const DynamicSecretAws: typeof import("./dynamicSecretAws").DynamicSecretAws = null as any;
+utilities.lazyLoad(exports, ["DynamicSecretAws"], () => require("./dynamicSecretAws"));
+
+export { DynamicSecretAzureArgs, DynamicSecretAzureState } from "./dynamicSecretAzure";
+export type DynamicSecretAzure = import("./dynamicSecretAzure").DynamicSecretAzure;
+export const DynamicSecretAzure: typeof import("./dynamicSecretAzure").DynamicSecretAzure = null as any;
+utilities.lazyLoad(exports, ["DynamicSecretAzure"], () => require("./dynamicSecretAzure"));
+
+export { DynamicSecretCassandraArgs, DynamicSecretCassandraState } from "./dynamicSecretCassandra";
+export type DynamicSecretCassandra = import("./dynamicSecretCassandra").DynamicSecretCassandra;
+export const DynamicSecretCassandra: typeof import("./dynamicSecretCassandra").DynamicSecretCassandra = null as any;
+utilities.lazyLoad(exports, ["DynamicSecretCassandra"], () => require("./dynamicSecretCassandra"));
+
+export { DynamicSecretCustomArgs, DynamicSecretCustomState } from "./dynamicSecretCustom";
+export type DynamicSecretCustom = import("./dynamicSecretCustom").DynamicSecretCustom;
+export const DynamicSecretCustom: typeof import("./dynamicSecretCustom").DynamicSecretCustom = null as any;
+utilities.lazyLoad(exports, ["DynamicSecretCustom"], () => require("./dynamicSecretCustom"));
+
+export { DynamicSecretEksArgs, DynamicSecretEksState } from "./dynamicSecretEks";
+export type DynamicSecretEks = import("./dynamicSecretEks").DynamicSecretEks;
+export const DynamicSecretEks: typeof import("./dynamicSecretEks").DynamicSecretEks = null as any;
+utilities.lazyLoad(exports, ["DynamicSecretEks"], () => require("./dynamicSecretEks"));
+
+export { DynamicSecretGcpArgs, DynamicSecretGcpState } from "./dynamicSecretGcp";
+export type DynamicSecretGcp = import("./dynamicSecretGcp").DynamicSecretGcp;
+export const DynamicSecretGcp: typeof import("./dynamicSecretGcp").DynamicSecretGcp = null as any;
+utilities.lazyLoad(exports, ["DynamicSecretGcp"], () => require("./dynamicSecretGcp"));
+
+export { DynamicSecretGithubArgs, DynamicSecretGithubState } from "./dynamicSecretGithub";
+export type DynamicSecretGithub = import("./dynamicSecretGithub").DynamicSecretGithub;
+export const DynamicSecretGithub: typeof import("./dynamicSecretGithub").DynamicSecretGithub = null as any;
+utilities.lazyLoad(exports, ["DynamicSecretGithub"], () => require("./dynamicSecretGithub"));
+
+export { DynamicSecretGitlabArgs, DynamicSecretGitlabState } from "./dynamicSecretGitlab";
+export type DynamicSecretGitlab = import("./dynamicSecretGitlab").DynamicSecretGitlab;
+export const DynamicSecretGitlab: typeof import("./dynamicSecretGitlab").DynamicSecretGitlab = null as any;
+utilities.lazyLoad(exports, ["DynamicSecretGitlab"], () => require("./dynamicSecretGitlab"));
+
+export { DynamicSecretGkeArgs, DynamicSecretGkeState } from "./dynamicSecretGke";
+export type DynamicSecretGke = import("./dynamicSecretGke").DynamicSecretGke;
+export const DynamicSecretGke: typeof import("./dynamicSecretGke").DynamicSecretGke = null as any;
+utilities.lazyLoad(exports, ["DynamicSecretGke"], () => require("./dynamicSecretGke"));
+
+export { DynamicSecretK8sArgs, DynamicSecretK8sState } from "./dynamicSecretK8s";
+export type DynamicSecretK8s = import("./dynamicSecretK8s").DynamicSecretK8s;
+export const DynamicSecretK8s: typeof import("./dynamicSecretK8s").DynamicSecretK8s = null as any;
+utilities.lazyLoad(exports, ["DynamicSecretK8s"], () => require("./dynamicSecretK8s"));
+
+export { DynamicSecretMongodbArgs, DynamicSecretMongodbState } from "./dynamicSecretMongodb";
+export type DynamicSecretMongodb = import("./dynamicSecretMongodb").DynamicSecretMongodb;
+export const DynamicSecretMongodb: typeof import("./dynamicSecretMongodb").DynamicSecretMongodb = null as any;
+utilities.lazyLoad(exports, ["DynamicSecretMongodb"], () => require("./dynamicSecretMongodb"));
+
+export { DynamicSecretMssqlArgs, DynamicSecretMssqlState } from "./dynamicSecretMssql";
+export type DynamicSecretMssql = import("./dynamicSecretMssql").DynamicSecretMssql;
+export const DynamicSecretMssql: typeof import("./dynamicSecretMssql").DynamicSecretMssql = null as any;
+utilities.lazyLoad(exports, ["DynamicSecretMssql"], () => require("./dynamicSecretMssql"));
+
+export { DynamicSecretMysqlArgs, DynamicSecretMysqlState } from "./dynamicSecretMysql";
+export type DynamicSecretMysql = import("./dynamicSecretMysql").DynamicSecretMysql;
+export const DynamicSecretMysql: typeof import("./dynamicSecretMysql").DynamicSecretMysql = null as any;
+utilities.lazyLoad(exports, ["DynamicSecretMysql"], () => require("./dynamicSecretMysql"));
+
+export { DynamicSecretOracleArgs, DynamicSecretOracleState } from "./dynamicSecretOracle";
+export type DynamicSecretOracle = import("./dynamicSecretOracle").DynamicSecretOracle;
+export const DynamicSecretOracle: typeof import("./dynamicSecretOracle").DynamicSecretOracle = null as any;
+utilities.lazyLoad(exports, ["DynamicSecretOracle"], () => require("./dynamicSecretOracle"));
+
+export { DynamicSecretPostgresqlArgs, DynamicSecretPostgresqlState } from "./dynamicSecretPostgresql";
+export type DynamicSecretPostgresql = import("./dynamicSecretPostgresql").DynamicSecretPostgresql;
+export const DynamicSecretPostgresql: typeof import("./dynamicSecretPostgresql").DynamicSecretPostgresql = null as any;
+utilities.lazyLoad(exports, ["DynamicSecretPostgresql"], () => require("./dynamicSecretPostgresql"));
+
+export { DynamicSecretRdpArgs, DynamicSecretRdpState } from "./dynamicSecretRdp";
+export type DynamicSecretRdp = import("./dynamicSecretRdp").DynamicSecretRdp;
+export const DynamicSecretRdp: typeof import("./dynamicSecretRdp").DynamicSecretRdp = null as any;
+utilities.lazyLoad(exports, ["DynamicSecretRdp"], () => require("./dynamicSecretRdp"));
+
+export { DynamicSecretRedshiftArgs, DynamicSecretRedshiftState } from "./dynamicSecretRedshift";
+export type DynamicSecretRedshift = import("./dynamicSecretRedshift").DynamicSecretRedshift;
+export const DynamicSecretRedshift: typeof import("./dynamicSecretRedshift").DynamicSecretRedshift = null as any;
+utilities.lazyLoad(exports, ["DynamicSecretRedshift"], () => require("./dynamicSecretRedshift"));
+
+export { EventForwarderEmailArgs, EventForwarderEmailState } from "./eventForwarderEmail";
+export type EventForwarderEmail = import("./eventForwarderEmail").EventForwarderEmail;
+export const EventForwarderEmail: typeof import("./eventForwarderEmail").EventForwarderEmail = null as any;
+utilities.lazyLoad(exports, ["EventForwarderEmail"], () => require("./eventForwarderEmail"));
+
+export { EventForwarderServiceNowArgs, EventForwarderServiceNowState } from "./eventForwarderServiceNow";
+export type EventForwarderServiceNow = import("./eventForwarderServiceNow").EventForwarderServiceNow;
+export const EventForwarderServiceNow: typeof import("./eventForwarderServiceNow").EventForwarderServiceNow = null as any;
+utilities.lazyLoad(exports, ["EventForwarderServiceNow"], () => require("./eventForwarderServiceNow"));
+
+export { EventForwarderSlackArgs, EventForwarderSlackState } from "./eventForwarderSlack";
+export type EventForwarderSlack = import("./eventForwarderSlack").EventForwarderSlack;
+export const EventForwarderSlack: typeof import("./eventForwarderSlack").EventForwarderSlack = null as any;
+utilities.lazyLoad(exports, ["EventForwarderSlack"], () => require("./eventForwarderSlack"));
+
+export { EventForwarderWebhookArgs, EventForwarderWebhookState } from "./eventForwarderWebhook";
+export type EventForwarderWebhook = import("./eventForwarderWebhook").EventForwarderWebhook;
+export const EventForwarderWebhook: typeof import("./eventForwarderWebhook").EventForwarderWebhook = null as any;
+utilities.lazyLoad(exports, ["EventForwarderWebhook"], () => require("./eventForwarderWebhook"));
+
+export { FolderArgs, FolderState } from "./folder";
+export type Folder = import("./folder").Folder;
+export const Folder: typeof import("./folder").Folder = null as any;
+utilities.lazyLoad(exports, ["Folder"], () => require("./folder"));
+
+export { GatewayAllowedAccessArgs, GatewayAllowedAccessState } from "./gatewayAllowedAccess";
+export type GatewayAllowedAccess = import("./gatewayAllowedAccess").GatewayAllowedAccess;
+export const GatewayAllowedAccess: typeof import("./gatewayAllowedAccess").GatewayAllowedAccess = null as any;
+utilities.lazyLoad(exports, ["GatewayAllowedAccess"], () => require("./gatewayAllowedAccess"));
+
+export { GatewayCacheArgs, GatewayCacheState } from "./gatewayCache";
+export type GatewayCache = import("./gatewayCache").GatewayCache;
+export const GatewayCache: typeof import("./gatewayCache").GatewayCache = null as any;
+utilities.lazyLoad(exports, ["GatewayCache"], () => require("./gatewayCache"));
+
+export { GatewayDefaultsArgs, GatewayDefaultsState } from "./gatewayDefaults";
+export type GatewayDefaults = import("./gatewayDefaults").GatewayDefaults;
+export const GatewayDefaults: typeof import("./gatewayDefaults").GatewayDefaults = null as any;
+utilities.lazyLoad(exports, ["GatewayDefaults"], () => require("./gatewayDefaults"));
+
+export { GatewayLogForwardingAwsS3Args, GatewayLogForwardingAwsS3State } from "./gatewayLogForwardingAwsS3";
+export type GatewayLogForwardingAwsS3 = import("./gatewayLogForwardingAwsS3").GatewayLogForwardingAwsS3;
+export const GatewayLogForwardingAwsS3: typeof import("./gatewayLogForwardingAwsS3").GatewayLogForwardingAwsS3 = null as any;
+utilities.lazyLoad(exports, ["GatewayLogForwardingAwsS3"], () => require("./gatewayLogForwardingAwsS3"));
+
+export { GatewayLogForwardingAzureAnalyticsArgs, GatewayLogForwardingAzureAnalyticsState } from "./gatewayLogForwardingAzureAnalytics";
+export type GatewayLogForwardingAzureAnalytics = import("./gatewayLogForwardingAzureAnalytics").GatewayLogForwardingAzureAnalytics;
+export const GatewayLogForwardingAzureAnalytics: typeof import("./gatewayLogForwardingAzureAnalytics").GatewayLogForwardingAzureAnalytics = null as any;
+utilities.lazyLoad(exports, ["GatewayLogForwardingAzureAnalytics"], () => require("./gatewayLogForwardingAzureAnalytics"));
+
+export { GatewayLogForwardingDatadogArgs, GatewayLogForwardingDatadogState } from "./gatewayLogForwardingDatadog";
+export type GatewayLogForwardingDatadog = import("./gatewayLogForwardingDatadog").GatewayLogForwardingDatadog;
+export const GatewayLogForwardingDatadog: typeof import("./gatewayLogForwardingDatadog").GatewayLogForwardingDatadog = null as any;
+utilities.lazyLoad(exports, ["GatewayLogForwardingDatadog"], () => require("./gatewayLogForwardingDatadog"));
+
+export { GatewayLogForwardingElasticsearchArgs, GatewayLogForwardingElasticsearchState } from "./gatewayLogForwardingElasticsearch";
+export type GatewayLogForwardingElasticsearch = import("./gatewayLogForwardingElasticsearch").GatewayLogForwardingElasticsearch;
+export const GatewayLogForwardingElasticsearch: typeof import("./gatewayLogForwardingElasticsearch").GatewayLogForwardingElasticsearch = null as any;
+utilities.lazyLoad(exports, ["GatewayLogForwardingElasticsearch"], () => require("./gatewayLogForwardingElasticsearch"));
+
+export { GatewayLogForwardingGoogleChronicleArgs, GatewayLogForwardingGoogleChronicleState } from "./gatewayLogForwardingGoogleChronicle";
+export type GatewayLogForwardingGoogleChronicle = import("./gatewayLogForwardingGoogleChronicle").GatewayLogForwardingGoogleChronicle;
+export const GatewayLogForwardingGoogleChronicle: typeof import("./gatewayLogForwardingGoogleChronicle").GatewayLogForwardingGoogleChronicle = null as any;
+utilities.lazyLoad(exports, ["GatewayLogForwardingGoogleChronicle"], () => require("./gatewayLogForwardingGoogleChronicle"));
+
+export { GatewayLogForwardingLogstashArgs, GatewayLogForwardingLogstashState } from "./gatewayLogForwardingLogstash";
+export type GatewayLogForwardingLogstash = import("./gatewayLogForwardingLogstash").GatewayLogForwardingLogstash;
+export const GatewayLogForwardingLogstash: typeof import("./gatewayLogForwardingLogstash").GatewayLogForwardingLogstash = null as any;
+utilities.lazyLoad(exports, ["GatewayLogForwardingLogstash"], () => require("./gatewayLogForwardingLogstash"));
+
+export { GatewayLogForwardingLogzIoArgs, GatewayLogForwardingLogzIoState } from "./gatewayLogForwardingLogzIo";
+export type GatewayLogForwardingLogzIo = import("./gatewayLogForwardingLogzIo").GatewayLogForwardingLogzIo;
+export const GatewayLogForwardingLogzIo: typeof import("./gatewayLogForwardingLogzIo").GatewayLogForwardingLogzIo = null as any;
+utilities.lazyLoad(exports, ["GatewayLogForwardingLogzIo"], () => require("./gatewayLogForwardingLogzIo"));
+
+export { GatewayLogForwardingSplunkArgs, GatewayLogForwardingSplunkState } from "./gatewayLogForwardingSplunk";
+export type GatewayLogForwardingSplunk = import("./gatewayLogForwardingSplunk").GatewayLogForwardingSplunk;
+export const GatewayLogForwardingSplunk: typeof import("./gatewayLogForwardingSplunk").GatewayLogForwardingSplunk = null as any;
+utilities.lazyLoad(exports, ["GatewayLogForwardingSplunk"], () => require("./gatewayLogForwardingSplunk"));
+
+export { GatewayLogForwardingStdoutArgs, GatewayLogForwardingStdoutState } from "./gatewayLogForwardingStdout";
+export type GatewayLogForwardingStdout = import("./gatewayLogForwardingStdout").GatewayLogForwardingStdout;
+export const GatewayLogForwardingStdout: typeof import("./gatewayLogForwardingStdout").GatewayLogForwardingStdout = null as any;
+utilities.lazyLoad(exports, ["GatewayLogForwardingStdout"], () => require("./gatewayLogForwardingStdout"));
+
+export { GatewayLogForwardingSumologicArgs, GatewayLogForwardingSumologicState } from "./gatewayLogForwardingSumologic";
+export type GatewayLogForwardingSumologic = import("./gatewayLogForwardingSumologic").GatewayLogForwardingSumologic;
+export const GatewayLogForwardingSumologic: typeof import("./gatewayLogForwardingSumologic").GatewayLogForwardingSumologic = null as any;
+utilities.lazyLoad(exports, ["GatewayLogForwardingSumologic"], () => require("./gatewayLogForwardingSumologic"));
+
+export { GatewayLogForwardingSyslogArgs, GatewayLogForwardingSyslogState } from "./gatewayLogForwardingSyslog";
+export type GatewayLogForwardingSyslog = import("./gatewayLogForwardingSyslog").GatewayLogForwardingSyslog;
+export const GatewayLogForwardingSyslog: typeof import("./gatewayLogForwardingSyslog").GatewayLogForwardingSyslog = null as any;
+utilities.lazyLoad(exports, ["GatewayLogForwardingSyslog"], () => require("./gatewayLogForwardingSyslog"));
+
+export { GatewayRemoteAccessArgs, GatewayRemoteAccessState } from "./gatewayRemoteAccess";
+export type GatewayRemoteAccess = import("./gatewayRemoteAccess").GatewayRemoteAccess;
+export const GatewayRemoteAccess: typeof import("./gatewayRemoteAccess").GatewayRemoteAccess = null as any;
+utilities.lazyLoad(exports, ["GatewayRemoteAccess"], () => require("./gatewayRemoteAccess"));
+
+export { GatewayRemoteAccessRdpRecordingArgs, GatewayRemoteAccessRdpRecordingState } from "./gatewayRemoteAccessRdpRecording";
+export type GatewayRemoteAccessRdpRecording = import("./gatewayRemoteAccessRdpRecording").GatewayRemoteAccessRdpRecording;
+export const GatewayRemoteAccessRdpRecording: typeof import("./gatewayRemoteAccessRdpRecording").GatewayRemoteAccessRdpRecording = null as any;
+utilities.lazyLoad(exports, ["GatewayRemoteAccessRdpRecording"], () => require("./gatewayRemoteAccessRdpRecording"));
+
+export { GetAuthArgs, GetAuthResult, GetAuthOutputArgs } from "./getAuth";
+export const getAuth: typeof import("./getAuth").getAuth = null as any;
+export const getAuthOutput: typeof import("./getAuth").getAuthOutput = null as any;
+utilities.lazyLoad(exports, ["getAuth","getAuthOutput"], () => require("./getAuth"));
+
+export { GetAuthMethodArgs, GetAuthMethodResult, GetAuthMethodOutputArgs } from "./getAuthMethod";
+export const getAuthMethod: typeof import("./getAuthMethod").getAuthMethod = null as any;
+export const getAuthMethodOutput: typeof import("./getAuthMethod").getAuthMethodOutput = null as any;
+utilities.lazyLoad(exports, ["getAuthMethod","getAuthMethodOutput"], () => require("./getAuthMethod"));
+
+export { GetCertificateArgs, GetCertificateResult, GetCertificateOutputArgs } from "./getCertificate";
+export const getCertificate: typeof import("./getCertificate").getCertificate = null as any;
+export const getCertificateOutput: typeof import("./getCertificate").getCertificateOutput = null as any;
+utilities.lazyLoad(exports, ["getCertificate","getCertificateOutput"], () => require("./getCertificate"));
+
+export { GetCsrArgs, GetCsrResult, GetCsrOutputArgs } from "./getCsr";
+export const getCsr: typeof import("./getCsr").getCsr = null as any;
+export const getCsrOutput: typeof import("./getCsr").getCsrOutput = null as any;
+utilities.lazyLoad(exports, ["getCsr","getCsrOutput"], () => require("./getCsr"));
+
+export { GetDetokenizeArgs, GetDetokenizeResult, GetDetokenizeOutputArgs } from "./getDetokenize";
+export const getDetokenize: typeof import("./getDetokenize").getDetokenize = null as any;
+export const getDetokenizeOutput: typeof import("./getDetokenize").getDetokenizeOutput = null as any;
+utilities.lazyLoad(exports, ["getDetokenize","getDetokenizeOutput"], () => require("./getDetokenize"));
+
+export { GetDynamicSecretArgs, GetDynamicSecretResult, GetDynamicSecretOutputArgs } from "./getDynamicSecret";
+export const getDynamicSecret: typeof import("./getDynamicSecret").getDynamicSecret = null as any;
+export const getDynamicSecretOutput: typeof import("./getDynamicSecret").getDynamicSecretOutput = null as any;
+utilities.lazyLoad(exports, ["getDynamicSecret","getDynamicSecretOutput"], () => require("./getDynamicSecret"));
+
+export { GetItemsArgs, GetItemsResult, GetItemsOutputArgs } from "./getItems";
+export const getItems: typeof import("./getItems").getItems = null as any;
+export const getItemsOutput: typeof import("./getItems").getItemsOutput = null as any;
+utilities.lazyLoad(exports, ["getItems","getItemsOutput"], () => require("./getItems"));
+
+export { GetK8sAuthConfigArgs, GetK8sAuthConfigResult, GetK8sAuthConfigOutputArgs } from "./getK8sAuthConfig";
+export const getK8sAuthConfig: typeof import("./getK8sAuthConfig").getK8sAuthConfig = null as any;
+export const getK8sAuthConfigOutput: typeof import("./getK8sAuthConfig").getK8sAuthConfigOutput = null as any;
+utilities.lazyLoad(exports, ["getK8sAuthConfig","getK8sAuthConfigOutput"], () => require("./getK8sAuthConfig"));
+
+export { GetKubeExecCredsArgs, GetKubeExecCredsResult, GetKubeExecCredsOutputArgs } from "./getKubeExecCreds";
+export const getKubeExecCreds: typeof import("./getKubeExecCreds").getKubeExecCreds = null as any;
+export const getKubeExecCredsOutput: typeof import("./getKubeExecCreds").getKubeExecCredsOutput = null as any;
+utilities.lazyLoad(exports, ["getKubeExecCreds","getKubeExecCredsOutput"], () => require("./getKubeExecCreds"));
+
+export { GetPkiCertificateArgs, GetPkiCertificateResult, GetPkiCertificateOutputArgs } from "./getPkiCertificate";
+export const getPkiCertificate: typeof import("./getPkiCertificate").getPkiCertificate = null as any;
+export const getPkiCertificateOutput: typeof import("./getPkiCertificate").getPkiCertificateOutput = null as any;
+utilities.lazyLoad(exports, ["getPkiCertificate","getPkiCertificateOutput"], () => require("./getPkiCertificate"));
+
+export { GetProducerTmpCredsArgs, GetProducerTmpCredsResult, GetProducerTmpCredsOutputArgs } from "./getProducerTmpCreds";
+export const getProducerTmpCreds: typeof import("./getProducerTmpCreds").getProducerTmpCreds = null as any;
+export const getProducerTmpCredsOutput: typeof import("./getProducerTmpCreds").getProducerTmpCredsOutput = null as any;
+utilities.lazyLoad(exports, ["getProducerTmpCreds","getProducerTmpCredsOutput"], () => require("./getProducerTmpCreds"));
+
+export { GetResetAccessKeyArgs, GetResetAccessKeyResult, GetResetAccessKeyOutputArgs } from "./getResetAccessKey";
+export const getResetAccessKey: typeof import("./getResetAccessKey").getResetAccessKey = null as any;
+export const getResetAccessKeyOutput: typeof import("./getResetAccessKey").getResetAccessKeyOutput = null as any;
+utilities.lazyLoad(exports, ["getResetAccessKey","getResetAccessKeyOutput"], () => require("./getResetAccessKey"));
+
+export { GetRoleArgs, GetRoleResult, GetRoleOutputArgs } from "./getRole";
+export const getRole: typeof import("./getRole").getRole = null as any;
+export const getRoleOutput: typeof import("./getRole").getRoleOutput = null as any;
+utilities.lazyLoad(exports, ["getRole","getRoleOutput"], () => require("./getRole"));
+
+export { GetRotatedSecretArgs, GetRotatedSecretResult, GetRotatedSecretOutputArgs } from "./getRotatedSecret";
+export const getRotatedSecret: typeof import("./getRotatedSecret").getRotatedSecret = null as any;
+export const getRotatedSecretOutput: typeof import("./getRotatedSecret").getRotatedSecretOutput = null as any;
+utilities.lazyLoad(exports, ["getRotatedSecret","getRotatedSecretOutput"], () => require("./getRotatedSecret"));
+
+export { GetRsaPubArgs, GetRsaPubResult, GetRsaPubOutputArgs } from "./getRsaPub";
+export const getRsaPub: typeof import("./getRsaPub").getRsaPub = null as any;
+export const getRsaPubOutput: typeof import("./getRsaPub").getRsaPubOutput = null as any;
+utilities.lazyLoad(exports, ["getRsaPub","getRsaPubOutput"], () => require("./getRsaPub"));
+
+export { GetSecretArgs, GetSecretResult, GetSecretOutputArgs } from "./getSecret";
+export const getSecret: typeof import("./getSecret").getSecret = null as any;
+export const getSecretOutput: typeof import("./getSecret").getSecretOutput = null as any;
+utilities.lazyLoad(exports, ["getSecret","getSecretOutput"], () => require("./getSecret"));
+
+export { GetSshCertificateArgs, GetSshCertificateResult, GetSshCertificateOutputArgs } from "./getSshCertificate";
+export const getSshCertificate: typeof import("./getSshCertificate").getSshCertificate = null as any;
+export const getSshCertificateOutput: typeof import("./getSshCertificate").getSshCertificateOutput = null as any;
+utilities.lazyLoad(exports, ["getSshCertificate","getSshCertificateOutput"], () => require("./getSshCertificate"));
+
+export { GetStaticSecretArgs, GetStaticSecretResult, GetStaticSecretOutputArgs } from "./getStaticSecret";
+export const getStaticSecret: typeof import("./getStaticSecret").getStaticSecret = null as any;
+export const getStaticSecretOutput: typeof import("./getStaticSecret").getStaticSecretOutput = null as any;
+utilities.lazyLoad(exports, ["getStaticSecret","getStaticSecretOutput"], () => require("./getStaticSecret"));
+
+export { GetTagsArgs, GetTagsResult, GetTagsOutputArgs } from "./getTags";
+export const getTags: typeof import("./getTags").getTags = null as any;
+export const getTagsOutput: typeof import("./getTags").getTagsOutput = null as any;
+utilities.lazyLoad(exports, ["getTags","getTagsOutput"], () => require("./getTags"));
+
+export { GetTargetArgs, GetTargetResult, GetTargetOutputArgs } from "./getTarget";
+export const getTarget: typeof import("./getTarget").getTarget = null as any;
+export const getTargetOutput: typeof import("./getTarget").getTargetOutput = null as any;
+utilities.lazyLoad(exports, ["getTarget","getTargetOutput"], () => require("./getTarget"));
+
+export { GetTargetDetailsArgs, GetTargetDetailsResult, GetTargetDetailsOutputArgs } from "./getTargetDetails";
+export const getTargetDetails: typeof import("./getTargetDetails").getTargetDetails = null as any;
+export const getTargetDetailsOutput: typeof import("./getTargetDetails").getTargetDetailsOutput = null as any;
+utilities.lazyLoad(exports, ["getTargetDetails","getTargetDetailsOutput"], () => require("./getTargetDetails"));
+
+export { GetTokenizeArgs, GetTokenizeResult, GetTokenizeOutputArgs } from "./getTokenize";
+export const getTokenize: typeof import("./getTokenize").getTokenize = null as any;
+export const getTokenizeOutput: typeof import("./getTokenize").getTokenizeOutput = null as any;
+utilities.lazyLoad(exports, ["getTokenize","getTokenizeOutput"], () => require("./getTokenize"));
+
+export { K8sAuthConfigArgs, K8sAuthConfigState } from "./k8sAuthConfig";
+export type K8sAuthConfig = import("./k8sAuthConfig").K8sAuthConfig;
+export const K8sAuthConfig: typeof import("./k8sAuthConfig").K8sAuthConfig = null as any;
+utilities.lazyLoad(exports, ["K8sAuthConfig"], () => require("./k8sAuthConfig"));
+
+export { PkiCertIssuerArgs, PkiCertIssuerState } from "./pkiCertIssuer";
+export type PkiCertIssuer = import("./pkiCertIssuer").PkiCertIssuer;
+export const PkiCertIssuer: typeof import("./pkiCertIssuer").PkiCertIssuer = null as any;
+utilities.lazyLoad(exports, ["PkiCertIssuer"], () => require("./pkiCertIssuer"));
+
+export { ProducerArtifactoryArgs, ProducerArtifactoryState } from "./producerArtifactory";
+export type ProducerArtifactory = import("./producerArtifactory").ProducerArtifactory;
+export const ProducerArtifactory: typeof import("./producerArtifactory").ProducerArtifactory = null as any;
+utilities.lazyLoad(exports, ["ProducerArtifactory"], () => require("./producerArtifactory"));
+
+export { ProducerAwsArgs, ProducerAwsState } from "./producerAws";
+export type ProducerAws = import("./producerAws").ProducerAws;
+export const ProducerAws: typeof import("./producerAws").ProducerAws = null as any;
+utilities.lazyLoad(exports, ["ProducerAws"], () => require("./producerAws"));
+
+export { ProducerAzureArgs, ProducerAzureState } from "./producerAzure";
+export type ProducerAzure = import("./producerAzure").ProducerAzure;
+export const ProducerAzure: typeof import("./producerAzure").ProducerAzure = null as any;
+utilities.lazyLoad(exports, ["ProducerAzure"], () => require("./producerAzure"));
+
+export { ProducerCassandraArgs, ProducerCassandraState } from "./producerCassandra";
+export type ProducerCassandra = import("./producerCassandra").ProducerCassandra;
+export const ProducerCassandra: typeof import("./producerCassandra").ProducerCassandra = null as any;
+utilities.lazyLoad(exports, ["ProducerCassandra"], () => require("./producerCassandra"));
+
+export { ProducerCustomArgs, ProducerCustomState } from "./producerCustom";
+export type ProducerCustom = import("./producerCustom").ProducerCustom;
+export const ProducerCustom: typeof import("./producerCustom").ProducerCustom = null as any;
+utilities.lazyLoad(exports, ["ProducerCustom"], () => require("./producerCustom"));
+
+export { ProducerEksArgs, ProducerEksState } from "./producerEks";
+export type ProducerEks = import("./producerEks").ProducerEks;
+export const ProducerEks: typeof import("./producerEks").ProducerEks = null as any;
+utilities.lazyLoad(exports, ["ProducerEks"], () => require("./producerEks"));
+
+export { ProducerGcpArgs, ProducerGcpState } from "./producerGcp";
+export type ProducerGcp = import("./producerGcp").ProducerGcp;
+export const ProducerGcp: typeof import("./producerGcp").ProducerGcp = null as any;
+utilities.lazyLoad(exports, ["ProducerGcp"], () => require("./producerGcp"));
+
+export { ProducerGithubArgs, ProducerGithubState } from "./producerGithub";
+export type ProducerGithub = import("./producerGithub").ProducerGithub;
+export const ProducerGithub: typeof import("./producerGithub").ProducerGithub = null as any;
+utilities.lazyLoad(exports, ["ProducerGithub"], () => require("./producerGithub"));
+
+export { ProducerGkeArgs, ProducerGkeState } from "./producerGke";
+export type ProducerGke = import("./producerGke").ProducerGke;
+export const ProducerGke: typeof import("./producerGke").ProducerGke = null as any;
+utilities.lazyLoad(exports, ["ProducerGke"], () => require("./producerGke"));
+
+export { ProducerK8sArgs, ProducerK8sState } from "./producerK8s";
+export type ProducerK8s = import("./producerK8s").ProducerK8s;
+export const ProducerK8s: typeof import("./producerK8s").ProducerK8s = null as any;
+utilities.lazyLoad(exports, ["ProducerK8s"], () => require("./producerK8s"));
+
+export { ProducerMongoArgs, ProducerMongoState } from "./producerMongo";
+export type ProducerMongo = import("./producerMongo").ProducerMongo;
+export const ProducerMongo: typeof import("./producerMongo").ProducerMongo = null as any;
+utilities.lazyLoad(exports, ["ProducerMongo"], () => require("./producerMongo"));
+
+export { ProducerMssqlArgs, ProducerMssqlState } from "./producerMssql";
+export type ProducerMssql = import("./producerMssql").ProducerMssql;
+export const ProducerMssql: typeof import("./producerMssql").ProducerMssql = null as any;
+utilities.lazyLoad(exports, ["ProducerMssql"], () => require("./producerMssql"));
+
+export { ProducerMysqlArgs, ProducerMysqlState } from "./producerMysql";
+export type ProducerMysql = import("./producerMysql").ProducerMysql;
+export const ProducerMysql: typeof import("./producerMysql").ProducerMysql = null as any;
+utilities.lazyLoad(exports, ["ProducerMysql"], () => require("./producerMysql"));
+
+export { ProducerOracleArgs, ProducerOracleState } from "./producerOracle";
+export type ProducerOracle = import("./producerOracle").ProducerOracle;
+export const ProducerOracle: typeof import("./producerOracle").ProducerOracle = null as any;
+utilities.lazyLoad(exports, ["ProducerOracle"], () => require("./producerOracle"));
+
+export { ProducerPostgresArgs, ProducerPostgresState } from "./producerPostgres";
+export type ProducerPostgres = import("./producerPostgres").ProducerPostgres;
+export const ProducerPostgres: typeof import("./producerPostgres").ProducerPostgres = null as any;
+utilities.lazyLoad(exports, ["ProducerPostgres"], () => require("./producerPostgres"));
+
+export { ProducerRdpArgs, ProducerRdpState } from "./producerRdp";
+export type ProducerRdp = import("./producerRdp").ProducerRdp;
+export const ProducerRdp: typeof import("./producerRdp").ProducerRdp = null as any;
+utilities.lazyLoad(exports, ["ProducerRdp"], () => require("./producerRdp"));
+
+export { ProducerRedshiftArgs, ProducerRedshiftState } from "./producerRedshift";
+export type ProducerRedshift = import("./producerRedshift").ProducerRedshift;
+export const ProducerRedshift: typeof import("./producerRedshift").ProducerRedshift = null as any;
+utilities.lazyLoad(exports, ["ProducerRedshift"], () => require("./producerRedshift"));
 
 export * from "./provider";
 import { Provider } from "./provider";
 
-export { ResourceArgs, ResourceState } from "./resource";
-export type Resource = import("./resource").Resource;
-export const Resource: typeof import("./resource").Resource = null as any;
-utilities.lazyLoad(exports, ["Resource"], () => require("./resource"));
+export { RoleArgs, RoleState } from "./role";
+export type Role = import("./role").Role;
+export const Role: typeof import("./role").Role = null as any;
+utilities.lazyLoad(exports, ["Role"], () => require("./role"));
+
+export { RotatedSecretArgs, RotatedSecretState } from "./rotatedSecret";
+export type RotatedSecret = import("./rotatedSecret").RotatedSecret;
+export const RotatedSecret: typeof import("./rotatedSecret").RotatedSecret = null as any;
+utilities.lazyLoad(exports, ["RotatedSecret"], () => require("./rotatedSecret"));
+
+export { RotatedSecretAwsArgs, RotatedSecretAwsState } from "./rotatedSecretAws";
+export type RotatedSecretAws = import("./rotatedSecretAws").RotatedSecretAws;
+export const RotatedSecretAws: typeof import("./rotatedSecretAws").RotatedSecretAws = null as any;
+utilities.lazyLoad(exports, ["RotatedSecretAws"], () => require("./rotatedSecretAws"));
+
+export { RotatedSecretAzureArgs, RotatedSecretAzureState } from "./rotatedSecretAzure";
+export type RotatedSecretAzure = import("./rotatedSecretAzure").RotatedSecretAzure;
+export const RotatedSecretAzure: typeof import("./rotatedSecretAzure").RotatedSecretAzure = null as any;
+utilities.lazyLoad(exports, ["RotatedSecretAzure"], () => require("./rotatedSecretAzure"));
+
+export { RotatedSecretCassandraArgs, RotatedSecretCassandraState } from "./rotatedSecretCassandra";
+export type RotatedSecretCassandra = import("./rotatedSecretCassandra").RotatedSecretCassandra;
+export const RotatedSecretCassandra: typeof import("./rotatedSecretCassandra").RotatedSecretCassandra = null as any;
+utilities.lazyLoad(exports, ["RotatedSecretCassandra"], () => require("./rotatedSecretCassandra"));
+
+export { RotatedSecretCustomArgs, RotatedSecretCustomState } from "./rotatedSecretCustom";
+export type RotatedSecretCustom = import("./rotatedSecretCustom").RotatedSecretCustom;
+export const RotatedSecretCustom: typeof import("./rotatedSecretCustom").RotatedSecretCustom = null as any;
+utilities.lazyLoad(exports, ["RotatedSecretCustom"], () => require("./rotatedSecretCustom"));
+
+export { RotatedSecretDockerhubArgs, RotatedSecretDockerhubState } from "./rotatedSecretDockerhub";
+export type RotatedSecretDockerhub = import("./rotatedSecretDockerhub").RotatedSecretDockerhub;
+export const RotatedSecretDockerhub: typeof import("./rotatedSecretDockerhub").RotatedSecretDockerhub = null as any;
+utilities.lazyLoad(exports, ["RotatedSecretDockerhub"], () => require("./rotatedSecretDockerhub"));
+
+export { RotatedSecretGcpArgs, RotatedSecretGcpState } from "./rotatedSecretGcp";
+export type RotatedSecretGcp = import("./rotatedSecretGcp").RotatedSecretGcp;
+export const RotatedSecretGcp: typeof import("./rotatedSecretGcp").RotatedSecretGcp = null as any;
+utilities.lazyLoad(exports, ["RotatedSecretGcp"], () => require("./rotatedSecretGcp"));
+
+export { RotatedSecretHanadbArgs, RotatedSecretHanadbState } from "./rotatedSecretHanadb";
+export type RotatedSecretHanadb = import("./rotatedSecretHanadb").RotatedSecretHanadb;
+export const RotatedSecretHanadb: typeof import("./rotatedSecretHanadb").RotatedSecretHanadb = null as any;
+utilities.lazyLoad(exports, ["RotatedSecretHanadb"], () => require("./rotatedSecretHanadb"));
+
+export { RotatedSecretLdapArgs, RotatedSecretLdapState } from "./rotatedSecretLdap";
+export type RotatedSecretLdap = import("./rotatedSecretLdap").RotatedSecretLdap;
+export const RotatedSecretLdap: typeof import("./rotatedSecretLdap").RotatedSecretLdap = null as any;
+utilities.lazyLoad(exports, ["RotatedSecretLdap"], () => require("./rotatedSecretLdap"));
+
+export { RotatedSecretMongodbArgs, RotatedSecretMongodbState } from "./rotatedSecretMongodb";
+export type RotatedSecretMongodb = import("./rotatedSecretMongodb").RotatedSecretMongodb;
+export const RotatedSecretMongodb: typeof import("./rotatedSecretMongodb").RotatedSecretMongodb = null as any;
+utilities.lazyLoad(exports, ["RotatedSecretMongodb"], () => require("./rotatedSecretMongodb"));
+
+export { RotatedSecretMssqlArgs, RotatedSecretMssqlState } from "./rotatedSecretMssql";
+export type RotatedSecretMssql = import("./rotatedSecretMssql").RotatedSecretMssql;
+export const RotatedSecretMssql: typeof import("./rotatedSecretMssql").RotatedSecretMssql = null as any;
+utilities.lazyLoad(exports, ["RotatedSecretMssql"], () => require("./rotatedSecretMssql"));
+
+export { RotatedSecretMysqlArgs, RotatedSecretMysqlState } from "./rotatedSecretMysql";
+export type RotatedSecretMysql = import("./rotatedSecretMysql").RotatedSecretMysql;
+export const RotatedSecretMysql: typeof import("./rotatedSecretMysql").RotatedSecretMysql = null as any;
+utilities.lazyLoad(exports, ["RotatedSecretMysql"], () => require("./rotatedSecretMysql"));
+
+export { RotatedSecretOracleArgs, RotatedSecretOracleState } from "./rotatedSecretOracle";
+export type RotatedSecretOracle = import("./rotatedSecretOracle").RotatedSecretOracle;
+export const RotatedSecretOracle: typeof import("./rotatedSecretOracle").RotatedSecretOracle = null as any;
+utilities.lazyLoad(exports, ["RotatedSecretOracle"], () => require("./rotatedSecretOracle"));
+
+export { RotatedSecretPostgresqlArgs, RotatedSecretPostgresqlState } from "./rotatedSecretPostgresql";
+export type RotatedSecretPostgresql = import("./rotatedSecretPostgresql").RotatedSecretPostgresql;
+export const RotatedSecretPostgresql: typeof import("./rotatedSecretPostgresql").RotatedSecretPostgresql = null as any;
+utilities.lazyLoad(exports, ["RotatedSecretPostgresql"], () => require("./rotatedSecretPostgresql"));
+
+export { RotatedSecretRedisArgs, RotatedSecretRedisState } from "./rotatedSecretRedis";
+export type RotatedSecretRedis = import("./rotatedSecretRedis").RotatedSecretRedis;
+export const RotatedSecretRedis: typeof import("./rotatedSecretRedis").RotatedSecretRedis = null as any;
+utilities.lazyLoad(exports, ["RotatedSecretRedis"], () => require("./rotatedSecretRedis"));
+
+export { RotatedSecretRedshiftArgs, RotatedSecretRedshiftState } from "./rotatedSecretRedshift";
+export type RotatedSecretRedshift = import("./rotatedSecretRedshift").RotatedSecretRedshift;
+export const RotatedSecretRedshift: typeof import("./rotatedSecretRedshift").RotatedSecretRedshift = null as any;
+utilities.lazyLoad(exports, ["RotatedSecretRedshift"], () => require("./rotatedSecretRedshift"));
+
+export { RotatedSecretSnowflakeArgs, RotatedSecretSnowflakeState } from "./rotatedSecretSnowflake";
+export type RotatedSecretSnowflake = import("./rotatedSecretSnowflake").RotatedSecretSnowflake;
+export const RotatedSecretSnowflake: typeof import("./rotatedSecretSnowflake").RotatedSecretSnowflake = null as any;
+utilities.lazyLoad(exports, ["RotatedSecretSnowflake"], () => require("./rotatedSecretSnowflake"));
+
+export { RotatedSecretSshArgs, RotatedSecretSshState } from "./rotatedSecretSsh";
+export type RotatedSecretSsh = import("./rotatedSecretSsh").RotatedSecretSsh;
+export const RotatedSecretSsh: typeof import("./rotatedSecretSsh").RotatedSecretSsh = null as any;
+utilities.lazyLoad(exports, ["RotatedSecretSsh"], () => require("./rotatedSecretSsh"));
+
+export { RotatedSecretSyncArgs, RotatedSecretSyncState } from "./rotatedSecretSync";
+export type RotatedSecretSync = import("./rotatedSecretSync").RotatedSecretSync;
+export const RotatedSecretSync: typeof import("./rotatedSecretSync").RotatedSecretSync = null as any;
+utilities.lazyLoad(exports, ["RotatedSecretSync"], () => require("./rotatedSecretSync"));
+
+export { RotatedSecretWindowsArgs, RotatedSecretWindowsState } from "./rotatedSecretWindows";
+export type RotatedSecretWindows = import("./rotatedSecretWindows").RotatedSecretWindows;
+export const RotatedSecretWindows: typeof import("./rotatedSecretWindows").RotatedSecretWindows = null as any;
+utilities.lazyLoad(exports, ["RotatedSecretWindows"], () => require("./rotatedSecretWindows"));
+
+export { SshCertIssuerArgs, SshCertIssuerState } from "./sshCertIssuer";
+export type SshCertIssuer = import("./sshCertIssuer").SshCertIssuer;
+export const SshCertIssuer: typeof import("./sshCertIssuer").SshCertIssuer = null as any;
+utilities.lazyLoad(exports, ["SshCertIssuer"], () => require("./sshCertIssuer"));
+
+export { StaticSecretArgs, StaticSecretState } from "./staticSecret";
+export type StaticSecret = import("./staticSecret").StaticSecret;
+export const StaticSecret: typeof import("./staticSecret").StaticSecret = null as any;
+utilities.lazyLoad(exports, ["StaticSecret"], () => require("./staticSecret"));
+
+export { StaticSecretSyncArgs, StaticSecretSyncState } from "./staticSecretSync";
+export type StaticSecretSync = import("./staticSecretSync").StaticSecretSync;
+export const StaticSecretSync: typeof import("./staticSecretSync").StaticSecretSync = null as any;
+utilities.lazyLoad(exports, ["StaticSecretSync"], () => require("./staticSecretSync"));
+
+export { TargetArtifactoryArgs, TargetArtifactoryState } from "./targetArtifactory";
+export type TargetArtifactory = import("./targetArtifactory").TargetArtifactory;
+export const TargetArtifactory: typeof import("./targetArtifactory").TargetArtifactory = null as any;
+utilities.lazyLoad(exports, ["TargetArtifactory"], () => require("./targetArtifactory"));
+
+export { TargetAwsArgs, TargetAwsState } from "./targetAws";
+export type TargetAws = import("./targetAws").TargetAws;
+export const TargetAws: typeof import("./targetAws").TargetAws = null as any;
+utilities.lazyLoad(exports, ["TargetAws"], () => require("./targetAws"));
+
+export { TargetAzureArgs, TargetAzureState } from "./targetAzure";
+export type TargetAzure = import("./targetAzure").TargetAzure;
+export const TargetAzure: typeof import("./targetAzure").TargetAzure = null as any;
+utilities.lazyLoad(exports, ["TargetAzure"], () => require("./targetAzure"));
+
+export { TargetDbArgs, TargetDbState } from "./targetDb";
+export type TargetDb = import("./targetDb").TargetDb;
+export const TargetDb: typeof import("./targetDb").TargetDb = null as any;
+utilities.lazyLoad(exports, ["TargetDb"], () => require("./targetDb"));
+
+export { TargetEksArgs, TargetEksState } from "./targetEks";
+export type TargetEks = import("./targetEks").TargetEks;
+export const TargetEks: typeof import("./targetEks").TargetEks = null as any;
+utilities.lazyLoad(exports, ["TargetEks"], () => require("./targetEks"));
+
+export { TargetGcpArgs, TargetGcpState } from "./targetGcp";
+export type TargetGcp = import("./targetGcp").TargetGcp;
+export const TargetGcp: typeof import("./targetGcp").TargetGcp = null as any;
+utilities.lazyLoad(exports, ["TargetGcp"], () => require("./targetGcp"));
+
+export { TargetGithubArgs, TargetGithubState } from "./targetGithub";
+export type TargetGithub = import("./targetGithub").TargetGithub;
+export const TargetGithub: typeof import("./targetGithub").TargetGithub = null as any;
+utilities.lazyLoad(exports, ["TargetGithub"], () => require("./targetGithub"));
+
+export { TargetGitlabArgs, TargetGitlabState } from "./targetGitlab";
+export type TargetGitlab = import("./targetGitlab").TargetGitlab;
+export const TargetGitlab: typeof import("./targetGitlab").TargetGitlab = null as any;
+utilities.lazyLoad(exports, ["TargetGitlab"], () => require("./targetGitlab"));
+
+export { TargetGkeArgs, TargetGkeState } from "./targetGke";
+export type TargetGke = import("./targetGke").TargetGke;
+export const TargetGke: typeof import("./targetGke").TargetGke = null as any;
+utilities.lazyLoad(exports, ["TargetGke"], () => require("./targetGke"));
+
+export { TargetGlobalsignArgs, TargetGlobalsignState } from "./targetGlobalsign";
+export type TargetGlobalsign = import("./targetGlobalsign").TargetGlobalsign;
+export const TargetGlobalsign: typeof import("./targetGlobalsign").TargetGlobalsign = null as any;
+utilities.lazyLoad(exports, ["TargetGlobalsign"], () => require("./targetGlobalsign"));
+
+export { TargetK8sArgs, TargetK8sState } from "./targetK8s";
+export type TargetK8s = import("./targetK8s").TargetK8s;
+export const TargetK8s: typeof import("./targetK8s").TargetK8s = null as any;
+utilities.lazyLoad(exports, ["TargetK8s"], () => require("./targetK8s"));
+
+export { TargetLinkedArgs, TargetLinkedState } from "./targetLinked";
+export type TargetLinked = import("./targetLinked").TargetLinked;
+export const TargetLinked: typeof import("./targetLinked").TargetLinked = null as any;
+utilities.lazyLoad(exports, ["TargetLinked"], () => require("./targetLinked"));
+
+export { TargetRabbitArgs, TargetRabbitState } from "./targetRabbit";
+export type TargetRabbit = import("./targetRabbit").TargetRabbit;
+export const TargetRabbit: typeof import("./targetRabbit").TargetRabbit = null as any;
+utilities.lazyLoad(exports, ["TargetRabbit"], () => require("./targetRabbit"));
+
+export { TargetSshArgs, TargetSshState } from "./targetSsh";
+export type TargetSsh = import("./targetSsh").TargetSsh;
+export const TargetSsh: typeof import("./targetSsh").TargetSsh = null as any;
+utilities.lazyLoad(exports, ["TargetSsh"], () => require("./targetSsh"));
+
+export { TargetWebArgs, TargetWebState } from "./targetWeb";
+export type TargetWeb = import("./targetWeb").TargetWeb;
+export const TargetWeb: typeof import("./targetWeb").TargetWeb = null as any;
+utilities.lazyLoad(exports, ["TargetWeb"], () => require("./targetWeb"));
+
+export { TargetWindowsArgs, TargetWindowsState } from "./targetWindows";
+export type TargetWindows = import("./targetWindows").TargetWindows;
+export const TargetWindows: typeof import("./targetWindows").TargetWindows = null as any;
+utilities.lazyLoad(exports, ["TargetWindows"], () => require("./targetWindows"));
+
+export { TargetZerosslArgs, TargetZerosslState } from "./targetZerossl";
+export type TargetZerossl = import("./targetZerossl").TargetZerossl;
+export const TargetZerossl: typeof import("./targetZerossl").TargetZerossl = null as any;
+utilities.lazyLoad(exports, ["TargetZerossl"], () => require("./targetZerossl"));
+
+export { TokenizerArgs, TokenizerState } from "./tokenizer";
+export type Tokenizer = import("./tokenizer").Tokenizer;
+export const Tokenizer: typeof import("./tokenizer").Tokenizer = null as any;
+utilities.lazyLoad(exports, ["Tokenizer"], () => require("./tokenizer"));
+
+export { UscArgs, UscState } from "./usc";
+export type Usc = import("./usc").Usc;
+export const Usc: typeof import("./usc").Usc = null as any;
+utilities.lazyLoad(exports, ["Usc"], () => require("./usc"));
+
+export { UscSecretArgs, UscSecretState } from "./uscSecret";
+export type UscSecret = import("./uscSecret").UscSecret;
+export const UscSecret: typeof import("./uscSecret").UscSecret = null as any;
+utilities.lazyLoad(exports, ["UscSecret"], () => require("./uscSecret"));
 
 
 // Export sub-modules:
 import * as config from "./config";
-import * as region from "./region";
 import * as types from "./types";
 
 export {
     config,
-    region,
     types,
 };
 
@@ -34,18 +722,369 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "xyz:index/resource:Resource":
-                return new Resource(name, <any>undefined, { urn })
+            case "akeyless:index/associateRoleAuthMethod:AssociateRoleAuthMethod":
+                return new AssociateRoleAuthMethod(name, <any>undefined, { urn })
+            case "akeyless:index/authMethod:AuthMethod":
+                return new AuthMethod(name, <any>undefined, { urn })
+            case "akeyless:index/authMethodApiKey:AuthMethodApiKey":
+                return new AuthMethodApiKey(name, <any>undefined, { urn })
+            case "akeyless:index/authMethodAwsIam:AuthMethodAwsIam":
+                return new AuthMethodAwsIam(name, <any>undefined, { urn })
+            case "akeyless:index/authMethodAzureAd:AuthMethodAzureAd":
+                return new AuthMethodAzureAd(name, <any>undefined, { urn })
+            case "akeyless:index/authMethodCert:AuthMethodCert":
+                return new AuthMethodCert(name, <any>undefined, { urn })
+            case "akeyless:index/authMethodGcp:AuthMethodGcp":
+                return new AuthMethodGcp(name, <any>undefined, { urn })
+            case "akeyless:index/authMethodK8s:AuthMethodK8s":
+                return new AuthMethodK8s(name, <any>undefined, { urn })
+            case "akeyless:index/authMethodLdap:AuthMethodLdap":
+                return new AuthMethodLdap(name, <any>undefined, { urn })
+            case "akeyless:index/authMethodOauth2:AuthMethodOauth2":
+                return new AuthMethodOauth2(name, <any>undefined, { urn })
+            case "akeyless:index/authMethodOidc:AuthMethodOidc":
+                return new AuthMethodOidc(name, <any>undefined, { urn })
+            case "akeyless:index/authMethodSaml:AuthMethodSaml":
+                return new AuthMethodSaml(name, <any>undefined, { urn })
+            case "akeyless:index/authMethodUniversalIdentity:AuthMethodUniversalIdentity":
+                return new AuthMethodUniversalIdentity(name, <any>undefined, { urn })
+            case "akeyless:index/certificate:Certificate":
+                return new Certificate(name, <any>undefined, { urn })
+            case "akeyless:index/classicKey:ClassicKey":
+                return new ClassicKey(name, <any>undefined, { urn })
+            case "akeyless:index/dfcKey:DfcKey":
+                return new DfcKey(name, <any>undefined, { urn })
+            case "akeyless:index/dynamicSecretArtifactory:DynamicSecretArtifactory":
+                return new DynamicSecretArtifactory(name, <any>undefined, { urn })
+            case "akeyless:index/dynamicSecretAws:DynamicSecretAws":
+                return new DynamicSecretAws(name, <any>undefined, { urn })
+            case "akeyless:index/dynamicSecretAzure:DynamicSecretAzure":
+                return new DynamicSecretAzure(name, <any>undefined, { urn })
+            case "akeyless:index/dynamicSecretCassandra:DynamicSecretCassandra":
+                return new DynamicSecretCassandra(name, <any>undefined, { urn })
+            case "akeyless:index/dynamicSecretCustom:DynamicSecretCustom":
+                return new DynamicSecretCustom(name, <any>undefined, { urn })
+            case "akeyless:index/dynamicSecretEks:DynamicSecretEks":
+                return new DynamicSecretEks(name, <any>undefined, { urn })
+            case "akeyless:index/dynamicSecretGcp:DynamicSecretGcp":
+                return new DynamicSecretGcp(name, <any>undefined, { urn })
+            case "akeyless:index/dynamicSecretGithub:DynamicSecretGithub":
+                return new DynamicSecretGithub(name, <any>undefined, { urn })
+            case "akeyless:index/dynamicSecretGitlab:DynamicSecretGitlab":
+                return new DynamicSecretGitlab(name, <any>undefined, { urn })
+            case "akeyless:index/dynamicSecretGke:DynamicSecretGke":
+                return new DynamicSecretGke(name, <any>undefined, { urn })
+            case "akeyless:index/dynamicSecretK8s:DynamicSecretK8s":
+                return new DynamicSecretK8s(name, <any>undefined, { urn })
+            case "akeyless:index/dynamicSecretMongodb:DynamicSecretMongodb":
+                return new DynamicSecretMongodb(name, <any>undefined, { urn })
+            case "akeyless:index/dynamicSecretMssql:DynamicSecretMssql":
+                return new DynamicSecretMssql(name, <any>undefined, { urn })
+            case "akeyless:index/dynamicSecretMysql:DynamicSecretMysql":
+                return new DynamicSecretMysql(name, <any>undefined, { urn })
+            case "akeyless:index/dynamicSecretOracle:DynamicSecretOracle":
+                return new DynamicSecretOracle(name, <any>undefined, { urn })
+            case "akeyless:index/dynamicSecretPostgresql:DynamicSecretPostgresql":
+                return new DynamicSecretPostgresql(name, <any>undefined, { urn })
+            case "akeyless:index/dynamicSecretRdp:DynamicSecretRdp":
+                return new DynamicSecretRdp(name, <any>undefined, { urn })
+            case "akeyless:index/dynamicSecretRedshift:DynamicSecretRedshift":
+                return new DynamicSecretRedshift(name, <any>undefined, { urn })
+            case "akeyless:index/eventForwarderEmail:EventForwarderEmail":
+                return new EventForwarderEmail(name, <any>undefined, { urn })
+            case "akeyless:index/eventForwarderServiceNow:EventForwarderServiceNow":
+                return new EventForwarderServiceNow(name, <any>undefined, { urn })
+            case "akeyless:index/eventForwarderSlack:EventForwarderSlack":
+                return new EventForwarderSlack(name, <any>undefined, { urn })
+            case "akeyless:index/eventForwarderWebhook:EventForwarderWebhook":
+                return new EventForwarderWebhook(name, <any>undefined, { urn })
+            case "akeyless:index/folder:Folder":
+                return new Folder(name, <any>undefined, { urn })
+            case "akeyless:index/gatewayAllowedAccess:GatewayAllowedAccess":
+                return new GatewayAllowedAccess(name, <any>undefined, { urn })
+            case "akeyless:index/gatewayCache:GatewayCache":
+                return new GatewayCache(name, <any>undefined, { urn })
+            case "akeyless:index/gatewayDefaults:GatewayDefaults":
+                return new GatewayDefaults(name, <any>undefined, { urn })
+            case "akeyless:index/gatewayLogForwardingAwsS3:GatewayLogForwardingAwsS3":
+                return new GatewayLogForwardingAwsS3(name, <any>undefined, { urn })
+            case "akeyless:index/gatewayLogForwardingAzureAnalytics:GatewayLogForwardingAzureAnalytics":
+                return new GatewayLogForwardingAzureAnalytics(name, <any>undefined, { urn })
+            case "akeyless:index/gatewayLogForwardingDatadog:GatewayLogForwardingDatadog":
+                return new GatewayLogForwardingDatadog(name, <any>undefined, { urn })
+            case "akeyless:index/gatewayLogForwardingElasticsearch:GatewayLogForwardingElasticsearch":
+                return new GatewayLogForwardingElasticsearch(name, <any>undefined, { urn })
+            case "akeyless:index/gatewayLogForwardingGoogleChronicle:GatewayLogForwardingGoogleChronicle":
+                return new GatewayLogForwardingGoogleChronicle(name, <any>undefined, { urn })
+            case "akeyless:index/gatewayLogForwardingLogstash:GatewayLogForwardingLogstash":
+                return new GatewayLogForwardingLogstash(name, <any>undefined, { urn })
+            case "akeyless:index/gatewayLogForwardingLogzIo:GatewayLogForwardingLogzIo":
+                return new GatewayLogForwardingLogzIo(name, <any>undefined, { urn })
+            case "akeyless:index/gatewayLogForwardingSplunk:GatewayLogForwardingSplunk":
+                return new GatewayLogForwardingSplunk(name, <any>undefined, { urn })
+            case "akeyless:index/gatewayLogForwardingStdout:GatewayLogForwardingStdout":
+                return new GatewayLogForwardingStdout(name, <any>undefined, { urn })
+            case "akeyless:index/gatewayLogForwardingSumologic:GatewayLogForwardingSumologic":
+                return new GatewayLogForwardingSumologic(name, <any>undefined, { urn })
+            case "akeyless:index/gatewayLogForwardingSyslog:GatewayLogForwardingSyslog":
+                return new GatewayLogForwardingSyslog(name, <any>undefined, { urn })
+            case "akeyless:index/gatewayRemoteAccess:GatewayRemoteAccess":
+                return new GatewayRemoteAccess(name, <any>undefined, { urn })
+            case "akeyless:index/gatewayRemoteAccessRdpRecording:GatewayRemoteAccessRdpRecording":
+                return new GatewayRemoteAccessRdpRecording(name, <any>undefined, { urn })
+            case "akeyless:index/k8sAuthConfig:K8sAuthConfig":
+                return new K8sAuthConfig(name, <any>undefined, { urn })
+            case "akeyless:index/pkiCertIssuer:PkiCertIssuer":
+                return new PkiCertIssuer(name, <any>undefined, { urn })
+            case "akeyless:index/producerArtifactory:ProducerArtifactory":
+                return new ProducerArtifactory(name, <any>undefined, { urn })
+            case "akeyless:index/producerAws:ProducerAws":
+                return new ProducerAws(name, <any>undefined, { urn })
+            case "akeyless:index/producerAzure:ProducerAzure":
+                return new ProducerAzure(name, <any>undefined, { urn })
+            case "akeyless:index/producerCassandra:ProducerCassandra":
+                return new ProducerCassandra(name, <any>undefined, { urn })
+            case "akeyless:index/producerCustom:ProducerCustom":
+                return new ProducerCustom(name, <any>undefined, { urn })
+            case "akeyless:index/producerEks:ProducerEks":
+                return new ProducerEks(name, <any>undefined, { urn })
+            case "akeyless:index/producerGcp:ProducerGcp":
+                return new ProducerGcp(name, <any>undefined, { urn })
+            case "akeyless:index/producerGithub:ProducerGithub":
+                return new ProducerGithub(name, <any>undefined, { urn })
+            case "akeyless:index/producerGke:ProducerGke":
+                return new ProducerGke(name, <any>undefined, { urn })
+            case "akeyless:index/producerK8s:ProducerK8s":
+                return new ProducerK8s(name, <any>undefined, { urn })
+            case "akeyless:index/producerMongo:ProducerMongo":
+                return new ProducerMongo(name, <any>undefined, { urn })
+            case "akeyless:index/producerMssql:ProducerMssql":
+                return new ProducerMssql(name, <any>undefined, { urn })
+            case "akeyless:index/producerMysql:ProducerMysql":
+                return new ProducerMysql(name, <any>undefined, { urn })
+            case "akeyless:index/producerOracle:ProducerOracle":
+                return new ProducerOracle(name, <any>undefined, { urn })
+            case "akeyless:index/producerPostgres:ProducerPostgres":
+                return new ProducerPostgres(name, <any>undefined, { urn })
+            case "akeyless:index/producerRdp:ProducerRdp":
+                return new ProducerRdp(name, <any>undefined, { urn })
+            case "akeyless:index/producerRedshift:ProducerRedshift":
+                return new ProducerRedshift(name, <any>undefined, { urn })
+            case "akeyless:index/role:Role":
+                return new Role(name, <any>undefined, { urn })
+            case "akeyless:index/rotatedSecret:RotatedSecret":
+                return new RotatedSecret(name, <any>undefined, { urn })
+            case "akeyless:index/rotatedSecretAws:RotatedSecretAws":
+                return new RotatedSecretAws(name, <any>undefined, { urn })
+            case "akeyless:index/rotatedSecretAzure:RotatedSecretAzure":
+                return new RotatedSecretAzure(name, <any>undefined, { urn })
+            case "akeyless:index/rotatedSecretCassandra:RotatedSecretCassandra":
+                return new RotatedSecretCassandra(name, <any>undefined, { urn })
+            case "akeyless:index/rotatedSecretCustom:RotatedSecretCustom":
+                return new RotatedSecretCustom(name, <any>undefined, { urn })
+            case "akeyless:index/rotatedSecretDockerhub:RotatedSecretDockerhub":
+                return new RotatedSecretDockerhub(name, <any>undefined, { urn })
+            case "akeyless:index/rotatedSecretGcp:RotatedSecretGcp":
+                return new RotatedSecretGcp(name, <any>undefined, { urn })
+            case "akeyless:index/rotatedSecretHanadb:RotatedSecretHanadb":
+                return new RotatedSecretHanadb(name, <any>undefined, { urn })
+            case "akeyless:index/rotatedSecretLdap:RotatedSecretLdap":
+                return new RotatedSecretLdap(name, <any>undefined, { urn })
+            case "akeyless:index/rotatedSecretMongodb:RotatedSecretMongodb":
+                return new RotatedSecretMongodb(name, <any>undefined, { urn })
+            case "akeyless:index/rotatedSecretMssql:RotatedSecretMssql":
+                return new RotatedSecretMssql(name, <any>undefined, { urn })
+            case "akeyless:index/rotatedSecretMysql:RotatedSecretMysql":
+                return new RotatedSecretMysql(name, <any>undefined, { urn })
+            case "akeyless:index/rotatedSecretOracle:RotatedSecretOracle":
+                return new RotatedSecretOracle(name, <any>undefined, { urn })
+            case "akeyless:index/rotatedSecretPostgresql:RotatedSecretPostgresql":
+                return new RotatedSecretPostgresql(name, <any>undefined, { urn })
+            case "akeyless:index/rotatedSecretRedis:RotatedSecretRedis":
+                return new RotatedSecretRedis(name, <any>undefined, { urn })
+            case "akeyless:index/rotatedSecretRedshift:RotatedSecretRedshift":
+                return new RotatedSecretRedshift(name, <any>undefined, { urn })
+            case "akeyless:index/rotatedSecretSnowflake:RotatedSecretSnowflake":
+                return new RotatedSecretSnowflake(name, <any>undefined, { urn })
+            case "akeyless:index/rotatedSecretSsh:RotatedSecretSsh":
+                return new RotatedSecretSsh(name, <any>undefined, { urn })
+            case "akeyless:index/rotatedSecretSync:RotatedSecretSync":
+                return new RotatedSecretSync(name, <any>undefined, { urn })
+            case "akeyless:index/rotatedSecretWindows:RotatedSecretWindows":
+                return new RotatedSecretWindows(name, <any>undefined, { urn })
+            case "akeyless:index/sshCertIssuer:SshCertIssuer":
+                return new SshCertIssuer(name, <any>undefined, { urn })
+            case "akeyless:index/staticSecret:StaticSecret":
+                return new StaticSecret(name, <any>undefined, { urn })
+            case "akeyless:index/staticSecretSync:StaticSecretSync":
+                return new StaticSecretSync(name, <any>undefined, { urn })
+            case "akeyless:index/targetArtifactory:TargetArtifactory":
+                return new TargetArtifactory(name, <any>undefined, { urn })
+            case "akeyless:index/targetAws:TargetAws":
+                return new TargetAws(name, <any>undefined, { urn })
+            case "akeyless:index/targetAzure:TargetAzure":
+                return new TargetAzure(name, <any>undefined, { urn })
+            case "akeyless:index/targetDb:TargetDb":
+                return new TargetDb(name, <any>undefined, { urn })
+            case "akeyless:index/targetEks:TargetEks":
+                return new TargetEks(name, <any>undefined, { urn })
+            case "akeyless:index/targetGcp:TargetGcp":
+                return new TargetGcp(name, <any>undefined, { urn })
+            case "akeyless:index/targetGithub:TargetGithub":
+                return new TargetGithub(name, <any>undefined, { urn })
+            case "akeyless:index/targetGitlab:TargetGitlab":
+                return new TargetGitlab(name, <any>undefined, { urn })
+            case "akeyless:index/targetGke:TargetGke":
+                return new TargetGke(name, <any>undefined, { urn })
+            case "akeyless:index/targetGlobalsign:TargetGlobalsign":
+                return new TargetGlobalsign(name, <any>undefined, { urn })
+            case "akeyless:index/targetK8s:TargetK8s":
+                return new TargetK8s(name, <any>undefined, { urn })
+            case "akeyless:index/targetLinked:TargetLinked":
+                return new TargetLinked(name, <any>undefined, { urn })
+            case "akeyless:index/targetRabbit:TargetRabbit":
+                return new TargetRabbit(name, <any>undefined, { urn })
+            case "akeyless:index/targetSsh:TargetSsh":
+                return new TargetSsh(name, <any>undefined, { urn })
+            case "akeyless:index/targetWeb:TargetWeb":
+                return new TargetWeb(name, <any>undefined, { urn })
+            case "akeyless:index/targetWindows:TargetWindows":
+                return new TargetWindows(name, <any>undefined, { urn })
+            case "akeyless:index/targetZerossl:TargetZerossl":
+                return new TargetZerossl(name, <any>undefined, { urn })
+            case "akeyless:index/tokenizer:Tokenizer":
+                return new Tokenizer(name, <any>undefined, { urn })
+            case "akeyless:index/usc:Usc":
+                return new Usc(name, <any>undefined, { urn })
+            case "akeyless:index/uscSecret:UscSecret":
+                return new UscSecret(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("xyz", "index/resource", _module)
-pulumi.runtime.registerResourcePackage("xyz", {
+pulumi.runtime.registerResourceModule("akeyless", "index/associateRoleAuthMethod", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/authMethod", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/authMethodApiKey", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/authMethodAwsIam", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/authMethodAzureAd", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/authMethodCert", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/authMethodGcp", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/authMethodK8s", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/authMethodLdap", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/authMethodOauth2", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/authMethodOidc", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/authMethodSaml", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/authMethodUniversalIdentity", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/certificate", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/classicKey", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/dfcKey", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/dynamicSecretArtifactory", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/dynamicSecretAws", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/dynamicSecretAzure", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/dynamicSecretCassandra", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/dynamicSecretCustom", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/dynamicSecretEks", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/dynamicSecretGcp", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/dynamicSecretGithub", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/dynamicSecretGitlab", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/dynamicSecretGke", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/dynamicSecretK8s", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/dynamicSecretMongodb", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/dynamicSecretMssql", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/dynamicSecretMysql", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/dynamicSecretOracle", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/dynamicSecretPostgresql", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/dynamicSecretRdp", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/dynamicSecretRedshift", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/eventForwarderEmail", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/eventForwarderServiceNow", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/eventForwarderSlack", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/eventForwarderWebhook", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/folder", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/gatewayAllowedAccess", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/gatewayCache", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/gatewayDefaults", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/gatewayLogForwardingAwsS3", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/gatewayLogForwardingAzureAnalytics", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/gatewayLogForwardingDatadog", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/gatewayLogForwardingElasticsearch", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/gatewayLogForwardingGoogleChronicle", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/gatewayLogForwardingLogstash", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/gatewayLogForwardingLogzIo", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/gatewayLogForwardingSplunk", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/gatewayLogForwardingStdout", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/gatewayLogForwardingSumologic", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/gatewayLogForwardingSyslog", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/gatewayRemoteAccess", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/gatewayRemoteAccessRdpRecording", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/k8sAuthConfig", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/pkiCertIssuer", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/producerArtifactory", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/producerAws", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/producerAzure", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/producerCassandra", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/producerCustom", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/producerEks", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/producerGcp", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/producerGithub", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/producerGke", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/producerK8s", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/producerMongo", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/producerMssql", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/producerMysql", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/producerOracle", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/producerPostgres", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/producerRdp", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/producerRedshift", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/role", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/rotatedSecret", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/rotatedSecretAws", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/rotatedSecretAzure", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/rotatedSecretCassandra", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/rotatedSecretCustom", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/rotatedSecretDockerhub", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/rotatedSecretGcp", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/rotatedSecretHanadb", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/rotatedSecretLdap", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/rotatedSecretMongodb", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/rotatedSecretMssql", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/rotatedSecretMysql", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/rotatedSecretOracle", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/rotatedSecretPostgresql", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/rotatedSecretRedis", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/rotatedSecretRedshift", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/rotatedSecretSnowflake", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/rotatedSecretSsh", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/rotatedSecretSync", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/rotatedSecretWindows", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/sshCertIssuer", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/staticSecret", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/staticSecretSync", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/targetArtifactory", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/targetAws", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/targetAzure", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/targetDb", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/targetEks", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/targetGcp", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/targetGithub", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/targetGitlab", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/targetGke", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/targetGlobalsign", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/targetK8s", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/targetLinked", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/targetRabbit", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/targetSsh", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/targetWeb", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/targetWindows", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/targetZerossl", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/tokenizer", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/usc", _module)
+pulumi.runtime.registerResourceModule("akeyless", "index/uscSecret", _module)
+pulumi.runtime.registerResourcePackage("akeyless", {
     version: utilities.getVersion(),
     constructProvider: (name: string, type: string, urn: string): pulumi.ProviderResource => {
-        if (type !== "pulumi:providers:xyz") {
+        if (type !== "pulumi:providers:akeyless") {
             throw new Error(`unknown provider type ${type}`);
         }
         return new Provider(name, <any>undefined, { urn });

@@ -4,5 +4,308 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
-import * as enums from "../types/enums";
 
+export interface AuthMethodApiKey {
+}
+
+export interface AuthMethodAwsIam {
+    /**
+     * A list of full arns that the access is restricted to
+     */
+    boundArns?: string[];
+    /**
+     * A list of AWS account-IDs that the access is restricted to
+     */
+    boundAwsAccountIds: string[];
+    /**
+     * A list of full resource ids that the access is restricted to
+     */
+    boundResourceIds?: string[];
+    /**
+     * A list of full role ids that the access is restricted to
+     */
+    boundRoleIds?: string[];
+    /**
+     * A list of full role-name that the access is restricted to
+     */
+    boundRoleNames?: string[];
+    /**
+     * A list of full user ids that the access is restricted to
+     */
+    boundUserIds?: string[];
+    /**
+     * A list of full user-name that the access is restricted to
+     */
+    boundUserNames?: string[];
+    /**
+     * STS URL (default: https://sts.amazonaws.com)
+     */
+    stsUrl?: string;
+}
+
+export interface AuthMethodAzureAd {
+    /**
+     * A list of group ids that the access is restricted to
+     */
+    boundGroupIds?: string[];
+    /**
+     * A list of resource providers that the access is restricted to (e.g, Microsoft.Compute, Microsoft.ManagedIdentity, etc)
+     */
+    boundProviders?: string[];
+    /**
+     * A list of full resource ids that the access is restricted to
+     */
+    boundResourceIds?: string[];
+    /**
+     * A list of resource names that the access is restricted to (e.g, a virtual machine name, scale set name, etc)
+     */
+    boundResourceNames?: string[];
+    /**
+     * A list of resource types that the access is restricted to (e.g, virtualMachines, userAssignedIdentities, etc)
+     */
+    boundResourceTypes?: string[];
+    /**
+     * A list of resource groups that the access is restricted to
+     */
+    boundRgIds?: string[];
+    /**
+     * A list of service principal IDs that the access is restricted to
+     */
+    boundSpids?: string[];
+    /**
+     * A list of subscription ids that the access is restricted to
+     */
+    boundSubIds?: string[];
+    /**
+     * The Azure tenant id that the access is restricted to
+     */
+    boundTenantId: string;
+    /**
+     * The audience in the JWT
+     */
+    customAudience?: string;
+    /**
+     * Issuer URL
+     */
+    customIssuer?: string;
+    /**
+     * The URL to the JSON Web Key Set (JWKS) that containing the public keys that should be used to verify any JSON Web Token (JWT) issued by the authorization server
+     */
+    jwksUri?: string;
+}
+
+export interface AuthMethodGcp {
+    /**
+     * The audience to verify in the JWT received by the client
+     */
+    audience?: string;
+    /**
+     * IAM GCE Auth Method
+     */
+    gces?: outputs.AuthMethodGcpGce[];
+    /**
+     * IAM GCP Auth Method
+     */
+    iams?: outputs.AuthMethodGcpIam[];
+    /**
+     * Service Account creds data, base64 encoded
+     */
+    serviceAccountCredsData: string;
+}
+
+export interface AuthMethodGcpGce {
+    /**
+     * GCE only. A list of GCP labels formatted as "key:value" pairs that must be set on instances in order to authenticate
+     */
+    boundLabels?: string[];
+    /**
+     * GCE only. A list of regions. GCE instances must belong to any of the provided regions in order to authenticate
+     */
+    boundRegions?: string[];
+    /**
+     * GCE only. A list of zones. GCE instances must belong to any of the provided zones in order to authenticate
+     */
+    boundZones?: string[];
+}
+
+export interface AuthMethodGcpIam {
+    /**
+     * IAM only. A list of Service Accounts. Clients must belong to any of the provided service accounts in order to authenticate
+     */
+    boundServiceAccounts?: string[];
+}
+
+export interface AuthMethodSaml {
+    /**
+     * IDP metadata url
+     */
+    idpMetadataUrl?: string;
+    /**
+     * IDP metadata xml data
+     */
+    idpMetadataXmlData?: string;
+    /**
+     * A unique identifier (ID) value should be configured for OAuth2, LDAP and SAML authentication method types and is usually a value such as the email, username, or upn for example
+     */
+    uniqueIdentifier: string;
+}
+
+export interface GetAuthApiKeyLogin {
+    accessId: string;
+    accessKey: string;
+}
+
+export interface GetAuthAwsIamLogin {
+    accessId: string;
+}
+
+export interface GetAuthAzureAdLogin {
+    accessId: string;
+}
+
+export interface GetAuthCertLogin {
+    accessId: string;
+    certData?: string;
+    certFileName?: string;
+    keyData?: string;
+    keyFileName?: string;
+}
+
+export interface GetAuthEmailLogin {
+    adminEmail: string;
+    adminPassword: string;
+}
+
+export interface GetAuthGcpLogin {
+    accessId: string;
+    audience?: string;
+}
+
+export interface GetAuthJwtLogin {
+    accessId: string;
+    jwt: string;
+}
+
+export interface GetAuthUidLogin {
+    accessId?: string;
+    uidToken: string;
+}
+
+export interface GetItemsItem {
+    /**
+     * The display id of the item
+     */
+    displayId: string;
+    /**
+     * The id of the item
+     */
+    id: number;
+    /**
+     * Indicates if the item is enabled
+     */
+    isEnabled: boolean;
+    /**
+     * The last version of the item
+     */
+    lastVersion: number;
+    /**
+     * The name (full path) of the item
+     */
+    name: string;
+    /**
+     * The type of the item
+     */
+    type: string;
+}
+
+export interface RoleAssocAuthMethod {
+    /**
+     * The access ID of the auth method
+     */
+    accessId: string;
+    /**
+     * The auth method to associate
+     */
+    amName: string;
+    /**
+     * The association ID
+     */
+    assocId: string;
+    /**
+     * Treat sub claims as case-sensitive
+     */
+    caseSensitive?: string;
+    /**
+     * key/val of sub claims, e.g group=admins,developers
+     */
+    subClaims?: {[key: string]: string};
+}
+
+export interface RoleRestrictedRule {
+    capabilities: string[];
+    path: string;
+    ruleType: string;
+}
+
+export interface RoleRule {
+    /**
+     * List of the approved/denied capabilities in the path options: [read, create, update, delete, list, deny] for sra-rule type: [allow_access, request_access, justify_access_only, approval_authority, upload_files, downloadFiles]
+     */
+    capabilities: string[];
+    /**
+     * The path the rule refers to
+     */
+    path: string;
+    /**
+     * item-rule, target-rule, role-rule, auth-method-rule, sra-rule
+     */
+    ruleType?: string;
+}
+
+export namespace config {
+    export interface ApiKeyLogins {
+        accessId: string;
+        accessKey: string;
+    }
+
+    export interface AwsIamLogins {
+        accessId: string;
+    }
+
+    export interface AzureAdLogins {
+        accessId: string;
+    }
+
+    export interface CertLogins {
+        accessId: string;
+        certData?: string;
+        certFileName?: string;
+        keyData?: string;
+        keyFileName?: string;
+    }
+
+    export interface EmailLogins {
+        adminEmail: string;
+        adminPassword: string;
+    }
+
+    export interface GcpLogins {
+        accessId: string;
+        audience?: string;
+    }
+
+    export interface JwtLogins {
+        accessId: string;
+        jwt: string;
+    }
+
+    export interface TokenLogins {
+        token: string;
+    }
+
+    export interface UidLogins {
+        accessId?: string;
+        uidToken: string;
+    }
+
+}

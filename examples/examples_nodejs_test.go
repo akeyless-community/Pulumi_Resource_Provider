@@ -5,6 +5,7 @@
 package examples
 
 import (
+	"os"
 	"path/filepath"
 	"testing"
 
@@ -12,11 +13,15 @@ import (
 )
 
 func TestBasicTs(t *testing.T) {
-	t.Skip("Skipping until the provider has been implemented")
+	if os.Getenv("AKEYLESS_ACCESS_ID") == "" || os.Getenv("AKEYLESS_ACCESS_KEY") == "" {
+		t.Skip("set AKEYLESS_ACCESS_ID and AKEYLESS_ACCESS_KEY to run this integration test")
+	}
 
-	opts := getJSBaseOptions(t).With(integration.ProgramTestOptions{
-		Dir: filepath.Join(getCwd(t), "basic-ts"),
-	})
+	opts := getJSBaseOptions(t).
+		With(akeylessIntegrationOpts()).
+		With(integration.ProgramTestOptions{
+			Dir: filepath.Join(getCwd(t), "basic-ts"),
+		})
 
 	integration.ProgramTest(t, &opts)
 }

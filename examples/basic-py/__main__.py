@@ -2,17 +2,26 @@
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#     http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
+
+"""Smoke test: one Akeyless folder. Set AKEYLESS_ACCESS_ID and AKEYLESS_ACCESS_KEY."""
+
+import os
+import re
 
 import pulumi
-import pulumi_xyz
+import pulumi_akeyless as akeyless
 
-resource = pulumi_xyz.Resource("Resource", sample_attribute = "attr")
+stack = pulumi.get_stack()
+_parent = os.environ.get("AKEYLESS_SMOKE_PARENT_PATH", "").strip().rstrip("/")
+_leaf = f"pulumi-smoke-{stack}"
+folder_name = re.sub(r"/+", "/", f"{_parent}/{_leaf}") if _parent else _leaf
+
+folder = akeyless.Folder(
+    "smoke",
+    name=folder_name,
+    description="Pulumi Akeyless provider smoke test; safe to delete.",
+    delete_protection="false",
+)
+
+pulumi.export("folder_name", folder.name)
+pulumi.export("folder_id", folder.folder_id)

@@ -1,2 +1,8 @@
 [tools]
 golangci-lint = "2.2.2"
+
+# Pulumi’s .config/mise.toml pins python@3.11.8 (astral-sh standalone). Newer mise versions
+# verify GitHub attestations; that often fails for this Python build. Safe workaround per mise:
+# https://mise.jdx.dev/lang/python.html
+[settings]
+python.github_attestations = false

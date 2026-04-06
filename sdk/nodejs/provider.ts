@@ -4,18 +4,17 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "./types/input";
 import * as outputs from "./types/output";
-import * as enums from "./types/enums";
 import * as utilities from "./utilities";
 
 /**
- * The provider type for the xyz package. By default, resources use package-wide configuration
+ * The provider type for the akeyless package. By default, resources use package-wide configuration
  * settings, however an explicit `Provider` instance may be created and passed during resource
  * construction to achieve fine-grained programmatic control over provider settings. See the
  * [documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.
  */
 export class Provider extends pulumi.ProviderResource {
     /** @internal */
-    public static readonly __pulumiType = 'xyz';
+    public static readonly __pulumiType = 'akeyless';
 
     /**
      * Returns true if the given object is an instance of Provider.  This is designed to work even
@@ -28,6 +27,10 @@ export class Provider extends pulumi.ProviderResource {
         return obj['__pulumiType'] === "pulumi:providers:" + Provider.__pulumiType;
     }
 
+    /**
+     * Origin URL of the API Gateway server. This is a URL with a scheme, a hostname and a port.
+     */
+    declare public readonly apiGatewayAddress: pulumi.Output<string | undefined>;
 
     /**
      * Create a Provider resource with the given unique name, arguments, and options.
@@ -40,7 +43,16 @@ export class Provider extends pulumi.ProviderResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         {
-            resourceInputs["region"] = args?.region;
+            resourceInputs["apiGatewayAddress"] = args?.apiGatewayAddress;
+            resourceInputs["apiKeyLogins"] = pulumi.output(args?.apiKeyLogins).apply(JSON.stringify);
+            resourceInputs["awsIamLogins"] = pulumi.output(args?.awsIamLogins).apply(JSON.stringify);
+            resourceInputs["azureAdLogins"] = pulumi.output(args?.azureAdLogins).apply(JSON.stringify);
+            resourceInputs["certLogins"] = pulumi.output(args?.certLogins).apply(JSON.stringify);
+            resourceInputs["emailLogins"] = pulumi.output(args?.emailLogins).apply(JSON.stringify);
+            resourceInputs["gcpLogins"] = pulumi.output(args?.gcpLogins).apply(JSON.stringify);
+            resourceInputs["jwtLogins"] = pulumi.output(args?.jwtLogins).apply(JSON.stringify);
+            resourceInputs["tokenLogins"] = pulumi.output(args?.tokenLogins).apply(JSON.stringify);
+            resourceInputs["uidLogins"] = pulumi.output(args?.uidLogins).apply(JSON.stringify);
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Provider.__pulumiType, name, resourceInputs, opts);
@@ -50,7 +62,7 @@ export class Provider extends pulumi.ProviderResource {
      * This function returns a Terraform config object with terraform-namecased keys,to be used with the Terraform Module Provider.
      */
     terraformConfig(): pulumi.Output<Provider.TerraformConfigResult> {
-        return pulumi.runtime.call("pulumi:providers:xyz/terraformConfig", {
+        return pulumi.runtime.call("pulumi:providers:akeyless/terraformConfig", {
             "__self__": this,
         }, this);
     }
@@ -61,9 +73,45 @@ export class Provider extends pulumi.ProviderResource {
  */
 export interface ProviderArgs {
     /**
-     * A region which should be used.
+     * Origin URL of the API Gateway server. This is a URL with a scheme, a hostname and a port.
      */
-    region?: pulumi.Input<enums.region.Region>;
+    apiGatewayAddress?: pulumi.Input<string>;
+    /**
+     * A configuration block, described below, that attempts to authenticate using API-Key.
+     */
+    apiKeyLogins?: pulumi.Input<pulumi.Input<inputs.ProviderApiKeyLogin>[]>;
+    /**
+     * A configuration block, described below, that attempts to authenticate using AWS-IAM authentication credentials.
+     */
+    awsIamLogins?: pulumi.Input<pulumi.Input<inputs.ProviderAwsIamLogin>[]>;
+    /**
+     * A configuration block, described below, that attempts to authenticate using Azure Active Directory authentication.
+     */
+    azureAdLogins?: pulumi.Input<pulumi.Input<inputs.ProviderAzureAdLogin>[]>;
+    /**
+     * A configuration block, described below, that attempts to authenticate using Certificate authentication.  The Certificate and the Private key can be provided as a command line variable or it will be pulled out of an environment variable named AKEYLESS_AUTH_CERT and AKEYLESS_AUTH_KEY.
+     */
+    certLogins?: pulumi.Input<pulumi.Input<inputs.ProviderCertLogin>[]>;
+    /**
+     * A configuration block, described below, that attempts to authenticate using email and password.
+     */
+    emailLogins?: pulumi.Input<pulumi.Input<inputs.ProviderEmailLogin>[]>;
+    /**
+     * A configuration block, described below, that attempts to authenticate using GCP-IAM authentication credentials.
+     */
+    gcpLogins?: pulumi.Input<pulumi.Input<inputs.ProviderGcpLogin>[]>;
+    /**
+     * A configuration block, described below, that attempts to authenticate using JWT authentication.  The JWT can be provided as a command line variable or it will be pulled out of an environment variable named AKEYLESS_AUTH_JWT.
+     */
+    jwtLogins?: pulumi.Input<pulumi.Input<inputs.ProviderJwtLogin>[]>;
+    /**
+     * A configuration block, described below, that attempts to authenticate using akeyless token. The token can be provided as a command line variable or it will be pulled out of an environment variable named AKEYLESS_AUTH_TOKEN.
+     */
+    tokenLogins?: pulumi.Input<pulumi.Input<inputs.ProviderTokenLogin>[]>;
+    /**
+     * A configuration block, described below, that attempts to authenticate using Universal Identity authentication.
+     */
+    uidLogins?: pulumi.Input<pulumi.Input<inputs.ProviderUidLogin>[]>;
 }
 
 export namespace Provider {

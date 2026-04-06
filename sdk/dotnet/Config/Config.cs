@@ -4,7 +4,7 @@
 using System;
 using System.Collections.Immutable;
 
-namespace Pulumi.Xyz
+namespace Pulumi.Akeyless
 {
     public static class Config
     {
@@ -30,17 +30,164 @@ namespace Pulumi.Xyz
             }
         }
 
-        private static readonly global::Pulumi.Config __config = new global::Pulumi.Config("xyz");
+        private static readonly global::Pulumi.Config __config = new global::Pulumi.Config("akeyless");
 
-        private static readonly __Value<Pulumi.Xyz.Region.Region?> _region = new __Value<Pulumi.Xyz.Region.Region?>(() => __config.GetObject<Pulumi.Xyz.Region.Region>("region"));
+        private static readonly __Value<string?> _apiGatewayAddress = new __Value<string?>(() => __config.Get("apiGatewayAddress"));
         /// <summary>
-        /// A region which should be used.
+        /// Origin URL of the API Gateway server. This is a URL with a scheme, a hostname and a port.
         /// </summary>
-        public static Pulumi.Xyz.Region.Region? Region
+        public static string? ApiGatewayAddress
         {
-            get => _region.Get();
-            set => _region.Set(value);
+            get => _apiGatewayAddress.Get();
+            set => _apiGatewayAddress.Set(value);
         }
 
+        private static readonly __Value<ImmutableArray<Pulumi.Akeyless.Config.Types.ApiKeyLogins>> _apiKeyLogins = new __Value<ImmutableArray<Pulumi.Akeyless.Config.Types.ApiKeyLogins>>(() => __config.GetObject<ImmutableArray<Pulumi.Akeyless.Config.Types.ApiKeyLogins>>("apiKeyLogins"));
+        /// <summary>
+        /// A configuration block, described below, that attempts to authenticate using API-Key.
+        /// </summary>
+        public static ImmutableArray<Pulumi.Akeyless.Config.Types.ApiKeyLogins> ApiKeyLogins
+        {
+            get => _apiKeyLogins.Get();
+            set => _apiKeyLogins.Set(value);
+        }
+
+        private static readonly __Value<ImmutableArray<Pulumi.Akeyless.Config.Types.AwsIamLogins>> _awsIamLogins = new __Value<ImmutableArray<Pulumi.Akeyless.Config.Types.AwsIamLogins>>(() => __config.GetObject<ImmutableArray<Pulumi.Akeyless.Config.Types.AwsIamLogins>>("awsIamLogins"));
+        /// <summary>
+        /// A configuration block, described below, that attempts to authenticate using AWS-IAM authentication credentials.
+        /// </summary>
+        public static ImmutableArray<Pulumi.Akeyless.Config.Types.AwsIamLogins> AwsIamLogins
+        {
+            get => _awsIamLogins.Get();
+            set => _awsIamLogins.Set(value);
+        }
+
+        private static readonly __Value<ImmutableArray<Pulumi.Akeyless.Config.Types.AzureAdLogins>> _azureAdLogins = new __Value<ImmutableArray<Pulumi.Akeyless.Config.Types.AzureAdLogins>>(() => __config.GetObject<ImmutableArray<Pulumi.Akeyless.Config.Types.AzureAdLogins>>("azureAdLogins"));
+        /// <summary>
+        /// A configuration block, described below, that attempts to authenticate using Azure Active Directory authentication.
+        /// </summary>
+        public static ImmutableArray<Pulumi.Akeyless.Config.Types.AzureAdLogins> AzureAdLogins
+        {
+            get => _azureAdLogins.Get();
+            set => _azureAdLogins.Set(value);
+        }
+
+        private static readonly __Value<ImmutableArray<Pulumi.Akeyless.Config.Types.CertLogins>> _certLogins = new __Value<ImmutableArray<Pulumi.Akeyless.Config.Types.CertLogins>>(() => __config.GetObject<ImmutableArray<Pulumi.Akeyless.Config.Types.CertLogins>>("certLogins"));
+        /// <summary>
+        /// A configuration block, described below, that attempts to authenticate using Certificate authentication.  The Certificate and the Private key can be provided as a command line variable or it will be pulled out of an environment variable named AKEYLESS_AUTH_CERT and AKEYLESS_AUTH_KEY.
+        /// </summary>
+        public static ImmutableArray<Pulumi.Akeyless.Config.Types.CertLogins> CertLogins
+        {
+            get => _certLogins.Get();
+            set => _certLogins.Set(value);
+        }
+
+        private static readonly __Value<ImmutableArray<Pulumi.Akeyless.Config.Types.EmailLogins>> _emailLogins = new __Value<ImmutableArray<Pulumi.Akeyless.Config.Types.EmailLogins>>(() => __config.GetObject<ImmutableArray<Pulumi.Akeyless.Config.Types.EmailLogins>>("emailLogins"));
+        /// <summary>
+        /// A configuration block, described below, that attempts to authenticate using email and password.
+        /// </summary>
+        public static ImmutableArray<Pulumi.Akeyless.Config.Types.EmailLogins> EmailLogins
+        {
+            get => _emailLogins.Get();
+            set => _emailLogins.Set(value);
+        }
+
+        private static readonly __Value<ImmutableArray<Pulumi.Akeyless.Config.Types.GcpLogins>> _gcpLogins = new __Value<ImmutableArray<Pulumi.Akeyless.Config.Types.GcpLogins>>(() => __config.GetObject<ImmutableArray<Pulumi.Akeyless.Config.Types.GcpLogins>>("gcpLogins"));
+        /// <summary>
+        /// A configuration block, described below, that attempts to authenticate using GCP-IAM authentication credentials.
+        /// </summary>
+        public static ImmutableArray<Pulumi.Akeyless.Config.Types.GcpLogins> GcpLogins
+        {
+            get => _gcpLogins.Get();
+            set => _gcpLogins.Set(value);
+        }
+
+        private static readonly __Value<ImmutableArray<Pulumi.Akeyless.Config.Types.JwtLogins>> _jwtLogins = new __Value<ImmutableArray<Pulumi.Akeyless.Config.Types.JwtLogins>>(() => __config.GetObject<ImmutableArray<Pulumi.Akeyless.Config.Types.JwtLogins>>("jwtLogins"));
+        /// <summary>
+        /// A configuration block, described below, that attempts to authenticate using JWT authentication.  The JWT can be provided as a command line variable or it will be pulled out of an environment variable named AKEYLESS_AUTH_JWT.
+        /// </summary>
+        public static ImmutableArray<Pulumi.Akeyless.Config.Types.JwtLogins> JwtLogins
+        {
+            get => _jwtLogins.Get();
+            set => _jwtLogins.Set(value);
+        }
+
+        private static readonly __Value<ImmutableArray<Pulumi.Akeyless.Config.Types.TokenLogins>> _tokenLogins = new __Value<ImmutableArray<Pulumi.Akeyless.Config.Types.TokenLogins>>(() => __config.GetObject<ImmutableArray<Pulumi.Akeyless.Config.Types.TokenLogins>>("tokenLogins"));
+        /// <summary>
+        /// A configuration block, described below, that attempts to authenticate using akeyless token. The token can be provided as a command line variable or it will be pulled out of an environment variable named AKEYLESS_AUTH_TOKEN.
+        /// </summary>
+        public static ImmutableArray<Pulumi.Akeyless.Config.Types.TokenLogins> TokenLogins
+        {
+            get => _tokenLogins.Get();
+            set => _tokenLogins.Set(value);
+        }
+
+        private static readonly __Value<ImmutableArray<Pulumi.Akeyless.Config.Types.UidLogins>> _uidLogins = new __Value<ImmutableArray<Pulumi.Akeyless.Config.Types.UidLogins>>(() => __config.GetObject<ImmutableArray<Pulumi.Akeyless.Config.Types.UidLogins>>("uidLogins"));
+        /// <summary>
+        /// A configuration block, described below, that attempts to authenticate using Universal Identity authentication.
+        /// </summary>
+        public static ImmutableArray<Pulumi.Akeyless.Config.Types.UidLogins> UidLogins
+        {
+            get => _uidLogins.Get();
+            set => _uidLogins.Set(value);
+        }
+
+        public static class Types
+        {
+
+             public class ApiKeyLogins
+             {
+                public string AccessId { get; set; }
+                public string AccessKey { get; set; }
+            }
+
+             public class AwsIamLogins
+             {
+                public string AccessId { get; set; }
+            }
+
+             public class AzureAdLogins
+             {
+                public string AccessId { get; set; }
+            }
+
+             public class CertLogins
+             {
+                public string AccessId { get; set; }
+                public string? CertData { get; set; } = null!;
+                public string? CertFileName { get; set; } = null!;
+                public string? KeyData { get; set; } = null!;
+                public string? KeyFileName { get; set; } = null!;
+            }
+
+             public class EmailLogins
+             {
+                public string AdminEmail { get; set; }
+                public string AdminPassword { get; set; }
+            }
+
+             public class GcpLogins
+             {
+                public string AccessId { get; set; }
+                public string? Audience { get; set; } = null!;
+            }
+
+             public class JwtLogins
+             {
+                public string AccessId { get; set; }
+                public string Jwt { get; set; }
+            }
+
+             public class TokenLogins
+             {
+                public string Token { get; set; }
+            }
+
+             public class UidLogins
+             {
+                public string? AccessId { get; set; } = null!;
+                public string UidToken { get; set; }
+            }
+        }
     }
 }

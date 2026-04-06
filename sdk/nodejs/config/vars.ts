@@ -4,19 +4,117 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
-import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 declare var exports: any;
-const __config = new pulumi.Config("xyz");
+const __config = new pulumi.Config("akeyless");
 
 /**
- * A region which should be used.
+ * Origin URL of the API Gateway server. This is a URL with a scheme, a hostname and a port.
  */
-export declare const region: enums.region.Region | undefined;
-Object.defineProperty(exports, "region", {
+export declare const apiGatewayAddress: string | undefined;
+Object.defineProperty(exports, "apiGatewayAddress", {
     get() {
-        return __config.getObject<enums.region.Region>("region");
+        return __config.get("apiGatewayAddress");
+    },
+    enumerable: true,
+});
+
+/**
+ * A configuration block, described below, that attempts to authenticate using API-Key.
+ */
+export declare const apiKeyLogins: outputs.config.ApiKeyLogins[] | undefined;
+Object.defineProperty(exports, "apiKeyLogins", {
+    get() {
+        return __config.getObject<outputs.config.ApiKeyLogins[]>("apiKeyLogins");
+    },
+    enumerable: true,
+});
+
+/**
+ * A configuration block, described below, that attempts to authenticate using AWS-IAM authentication credentials.
+ */
+export declare const awsIamLogins: outputs.config.AwsIamLogins[] | undefined;
+Object.defineProperty(exports, "awsIamLogins", {
+    get() {
+        return __config.getObject<outputs.config.AwsIamLogins[]>("awsIamLogins");
+    },
+    enumerable: true,
+});
+
+/**
+ * A configuration block, described below, that attempts to authenticate using Azure Active Directory authentication.
+ */
+export declare const azureAdLogins: outputs.config.AzureAdLogins[] | undefined;
+Object.defineProperty(exports, "azureAdLogins", {
+    get() {
+        return __config.getObject<outputs.config.AzureAdLogins[]>("azureAdLogins");
+    },
+    enumerable: true,
+});
+
+/**
+ * A configuration block, described below, that attempts to authenticate using Certificate authentication.  The Certificate and the Private key can be provided as a command line variable or it will be pulled out of an environment variable named AKEYLESS_AUTH_CERT and AKEYLESS_AUTH_KEY.
+ */
+export declare const certLogins: outputs.config.CertLogins[] | undefined;
+Object.defineProperty(exports, "certLogins", {
+    get() {
+        return __config.getObject<outputs.config.CertLogins[]>("certLogins");
+    },
+    enumerable: true,
+});
+
+/**
+ * A configuration block, described below, that attempts to authenticate using email and password.
+ */
+export declare const emailLogins: outputs.config.EmailLogins[] | undefined;
+Object.defineProperty(exports, "emailLogins", {
+    get() {
+        return __config.getObject<outputs.config.EmailLogins[]>("emailLogins");
+    },
+    enumerable: true,
+});
+
+/**
+ * A configuration block, described below, that attempts to authenticate using GCP-IAM authentication credentials.
+ */
+export declare const gcpLogins: outputs.config.GcpLogins[] | undefined;
+Object.defineProperty(exports, "gcpLogins", {
+    get() {
+        return __config.getObject<outputs.config.GcpLogins[]>("gcpLogins");
+    },
+    enumerable: true,
+});
+
+/**
+ * A configuration block, described below, that attempts to authenticate using JWT authentication.  The JWT can be provided as a command line variable or it will be pulled out of an environment variable named AKEYLESS_AUTH_JWT.
+ */
+export declare const jwtLogins: outputs.config.JwtLogins[] | undefined;
+Object.defineProperty(exports, "jwtLogins", {
+    get() {
+        return __config.getObject<outputs.config.JwtLogins[]>("jwtLogins");
+    },
+    enumerable: true,
+});
+
+/**
+ * A configuration block, described below, that attempts to authenticate using akeyless token. The token can be provided as a command line variable or it will be pulled out of an environment variable named AKEYLESS_AUTH_TOKEN.
+ */
+export declare const tokenLogins: outputs.config.TokenLogins[] | undefined;
+Object.defineProperty(exports, "tokenLogins", {
+    get() {
+        return __config.getObject<outputs.config.TokenLogins[]>("tokenLogins");
+    },
+    enumerable: true,
+});
+
+/**
+ * A configuration block, described below, that attempts to authenticate using Universal Identity authentication.
+ */
+export declare const uidLogins: outputs.config.UidLogins[] | undefined;
+Object.defineProperty(exports, "uidLogins", {
+    get() {
+        return __config.getObject<outputs.config.UidLogins[]>("uidLogins");
     },
     enumerable: true,
 });

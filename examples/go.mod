@@ -1,4 +1,4 @@
-module github.com/pulumi/pulumi-xyz/examples
+module github.com/akeyless-community/pulumi-akeyless/examples
 
 go 1.24.7
 

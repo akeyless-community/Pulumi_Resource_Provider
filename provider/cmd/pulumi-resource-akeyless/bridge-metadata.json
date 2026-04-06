@@ -1,0 +1,1404 @@
+{
+    "auto-aliasing": {
+        "resources": {
+            "akeyless_associate_role_auth_method": {
+                "current": "akeyless:index/associateRoleAuthMethod:AssociateRoleAuthMethod",
+                "majorVersion": 1
+            },
+            "akeyless_auth_method": {
+                "current": "akeyless:index/authMethod:AuthMethod",
+                "majorVersion": 1,
+                "fields": {
+                    "api_key": {
+                        "maxItemsOne": false
+                    },
+                    "aws_iam": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "bound_arn": {
+                                    "maxItemsOne": false
+                                },
+                                "bound_aws_account_id": {
+                                    "maxItemsOne": false
+                                },
+                                "bound_resource_id": {
+                                    "maxItemsOne": false
+                                },
+                                "bound_role_id": {
+                                    "maxItemsOne": false
+                                },
+                                "bound_role_name": {
+                                    "maxItemsOne": false
+                                },
+                                "bound_user_id": {
+                                    "maxItemsOne": false
+                                },
+                                "bound_user_name": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "azure_ad": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "bound_group_id": {
+                                    "maxItemsOne": false
+                                },
+                                "bound_providers": {
+                                    "maxItemsOne": false
+                                },
+                                "bound_resource_id": {
+                                    "maxItemsOne": false
+                                },
+                                "bound_resource_names": {
+                                    "maxItemsOne": false
+                                },
+                                "bound_resource_types": {
+                                    "maxItemsOne": false
+                                },
+                                "bound_rg_id": {
+                                    "maxItemsOne": false
+                                },
+                                "bound_spid": {
+                                    "maxItemsOne": false
+                                },
+                                "bound_sub_id": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "gcp": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "gce": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "bound_labels": {
+                                                "maxItemsOne": false
+                                            },
+                                            "bound_regions": {
+                                                "maxItemsOne": false
+                                            },
+                                            "bound_zones": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "iam": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "bound_service_accounts": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "saml": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "akeyless_auth_method_api_key": {
+                "current": "akeyless:index/authMethodApiKey:AuthMethodApiKey",
+                "majorVersion": 1,
+                "fields": {
+                    "audit_logs_claims": {
+                        "maxItemsOne": false
+                    },
+                    "bound_ips": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "akeyless_auth_method_aws_iam": {
+                "current": "akeyless:index/authMethodAwsIam:AuthMethodAwsIam",
+                "majorVersion": 1,
+                "fields": {
+                    "audit_logs_claims": {
+                        "maxItemsOne": false
+                    },
+                    "bound_arn": {
+                        "maxItemsOne": false
+                    },
+                    "bound_aws_account_id": {
+                        "maxItemsOne": false
+                    },
+                    "bound_ips": {
+                        "maxItemsOne": false
+                    },
+                    "bound_resource_id": {
+                        "maxItemsOne": false
+                    },
+                    "bound_role_id": {
+                        "maxItemsOne": false
+                    },
+                    "bound_role_name": {
+                        "maxItemsOne": false
+                    },
+                    "bound_user_id": {
+                        "maxItemsOne": false
+                    },
+                    "bound_user_name": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "akeyless_auth_method_azure_ad": {
+                "current": "akeyless:index/authMethodAzureAd:AuthMethodAzureAd",
+                "majorVersion": 1,
+                "fields": {
+                    "audit_logs_claims": {
+                        "maxItemsOne": false
+                    },
+                    "bound_group_id": {
+                        "maxItemsOne": false
+                    },
+                    "bound_ips": {
+                        "maxItemsOne": false
+                    },
+                    "bound_providers": {
+                        "maxItemsOne": false
+                    },
+                    "bound_resource_id": {
+                        "maxItemsOne": false
+                    },
+                    "bound_resource_names": {
+                        "maxItemsOne": false
+                    },
+                    "bound_resource_types": {
+                        "maxItemsOne": false
+                    },
+                    "bound_rg_id": {
+                        "maxItemsOne": false
+                    },
+                    "bound_spid": {
+                        "maxItemsOne": false
+                    },
+                    "bound_sub_id": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "akeyless_auth_method_cert": {
+                "current": "akeyless:index/authMethodCert:AuthMethodCert",
+                "majorVersion": 1,
+                "fields": {
+                    "audit_logs_claims": {
+                        "maxItemsOne": false
+                    },
+                    "bound_common_names": {
+                        "maxItemsOne": false
+                    },
+                    "bound_dns_sans": {
+                        "maxItemsOne": false
+                    },
+                    "bound_email_sans": {
+                        "maxItemsOne": false
+                    },
+                    "bound_extensions": {
+                        "maxItemsOne": false
+                    },
+                    "bound_ips": {
+                        "maxItemsOne": false
+                    },
+                    "bound_organizational_units": {
+                        "maxItemsOne": false
+                    },
+                    "bound_uri_sans": {
+                        "maxItemsOne": false
+                    },
+                    "gw_bound_ips": {
+                        "maxItemsOne": false
+                    },
+                    "revoked_cert_ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "akeyless_auth_method_gcp": {
+                "current": "akeyless:index/authMethodGcp:AuthMethodGcp",
+                "majorVersion": 1,
+                "fields": {
+                    "audit_logs_claims": {
+                        "maxItemsOne": false
+                    },
+                    "bound_ips": {
+                        "maxItemsOne": false
+                    },
+                    "bound_labels": {
+                        "maxItemsOne": false
+                    },
+                    "bound_projects": {
+                        "maxItemsOne": false
+                    },
+                    "bound_regions": {
+                        "maxItemsOne": false
+                    },
+                    "bound_service_accounts": {
+                        "maxItemsOne": false
+                    },
+                    "bound_zones": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "akeyless_auth_method_k8s": {
+                "current": "akeyless:index/authMethodK8s:AuthMethodK8s",
+                "majorVersion": 1,
+                "fields": {
+                    "audit_logs_claims": {
+                        "maxItemsOne": false
+                    },
+                    "bound_ips": {
+                        "maxItemsOne": false
+                    },
+                    "bound_namespaces": {
+                        "maxItemsOne": false
+                    },
+                    "bound_pod_names": {
+                        "maxItemsOne": false
+                    },
+                    "bound_sa_names": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "akeyless_auth_method_ldap": {
+                "current": "akeyless:index/authMethodLdap:AuthMethodLdap",
+                "majorVersion": 1,
+                "fields": {
+                    "audit_logs_claims": {
+                        "maxItemsOne": false
+                    },
+                    "bound_ips": {
+                        "maxItemsOne": false
+                    },
+                    "expiration_event_in": {
+                        "maxItemsOne": false
+                    },
+                    "gw_bound_ips": {
+                        "maxItemsOne": false
+                    },
+                    "product_type": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "akeyless_auth_method_oauth2": {
+                "current": "akeyless:index/authMethodOauth2:AuthMethodOauth2",
+                "majorVersion": 1,
+                "fields": {
+                    "audit_logs_claims": {
+                        "maxItemsOne": false
+                    },
+                    "bound_client_ids": {
+                        "maxItemsOne": false
+                    },
+                    "bound_ips": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "akeyless_auth_method_oidc": {
+                "current": "akeyless:index/authMethodOidc:AuthMethodOidc",
+                "majorVersion": 1,
+                "fields": {
+                    "allowed_redirect_uri": {
+                        "maxItemsOne": false
+                    },
+                    "audit_logs_claims": {
+                        "maxItemsOne": false
+                    },
+                    "bound_ips": {
+                        "maxItemsOne": false
+                    },
+                    "required_scopes": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "akeyless_auth_method_saml": {
+                "current": "akeyless:index/authMethodSaml:AuthMethodSaml",
+                "majorVersion": 1,
+                "fields": {
+                    "allowed_redirect_uri": {
+                        "maxItemsOne": false
+                    },
+                    "audit_logs_claims": {
+                        "maxItemsOne": false
+                    },
+                    "bound_ips": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "akeyless_auth_method_universal_identity": {
+                "current": "akeyless:index/authMethodUniversalIdentity:AuthMethodUniversalIdentity",
+                "majorVersion": 1,
+                "fields": {
+                    "audit_logs_claims": {
+                        "maxItemsOne": false
+                    },
+                    "bound_ips": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "akeyless_certificate": {
+                "current": "akeyless:index/certificate:Certificate",
+                "majorVersion": 1,
+                "fields": {
+                    "expiration_event_in": {
+                        "maxItemsOne": false
+                    },
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "akeyless_classic_key": {
+                "current": "akeyless:index/classicKey:ClassicKey",
+                "majorVersion": 1,
+                "fields": {
+                    "expiration_event_in": {
+                        "maxItemsOne": false
+                    },
+                    "rotation_event_in": {
+                        "maxItemsOne": false
+                    },
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "akeyless_dfc_key": {
+                "current": "akeyless:index/dfcKey:DfcKey",
+                "majorVersion": 1,
+                "fields": {
+                    "expiration_event_in": {
+                        "maxItemsOne": false
+                    },
+                    "rotation_event_in": {
+                        "maxItemsOne": false
+                    },
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "akeyless_dynamic_secret_artifactory": {
+                "current": "akeyless:index/dynamicSecretArtifactory:DynamicSecretArtifactory",
+                "majorVersion": 1,
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "akeyless_dynamic_secret_aws": {
+                "current": "akeyless:index/dynamicSecretAws:DynamicSecretAws",
+                "majorVersion": 1,
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "akeyless_dynamic_secret_azure": {
+                "current": "akeyless:index/dynamicSecretAzure:DynamicSecretAzure",
+                "majorVersion": 1,
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "akeyless_dynamic_secret_cassandra": {
+                "current": "akeyless:index/dynamicSecretCassandra:DynamicSecretCassandra",
+                "majorVersion": 1,
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "akeyless_dynamic_secret_custom": {
+                "current": "akeyless:index/dynamicSecretCustom:DynamicSecretCustom",
+                "majorVersion": 1,
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "akeyless_dynamic_secret_eks": {
+                "current": "akeyless:index/dynamicSecretEks:DynamicSecretEks",
+                "majorVersion": 1,
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "akeyless_dynamic_secret_gcp": {
+                "current": "akeyless:index/dynamicSecretGcp:DynamicSecretGcp",
+                "majorVersion": 1,
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "akeyless_dynamic_secret_github": {
+                "current": "akeyless:index/dynamicSecretGithub:DynamicSecretGithub",
+                "majorVersion": 1,
+                "fields": {
+                    "token_permissions": {
+                        "maxItemsOne": false
+                    },
+                    "token_repositories": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "akeyless_dynamic_secret_gitlab": {
+                "current": "akeyless:index/dynamicSecretGitlab:DynamicSecretGitlab",
+                "majorVersion": 1,
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "akeyless_dynamic_secret_gke": {
+                "current": "akeyless:index/dynamicSecretGke:DynamicSecretGke",
+                "majorVersion": 1,
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "akeyless_dynamic_secret_k8s": {
+                "current": "akeyless:index/dynamicSecretK8s:DynamicSecretK8s",
+                "majorVersion": 1,
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "akeyless_dynamic_secret_mongodb": {
+                "current": "akeyless:index/dynamicSecretMongodb:DynamicSecretMongodb",
+                "majorVersion": 1,
+                "fields": {
+                    "secure_access_host": {
+                        "maxItemsOne": false
+                    },
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "akeyless_dynamic_secret_mssql": {
+                "current": "akeyless:index/dynamicSecretMssql:DynamicSecretMssql",
+                "majorVersion": 1,
+                "fields": {
+                    "secure_access_host": {
+                        "maxItemsOne": false
+                    },
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "akeyless_dynamic_secret_mysql": {
+                "current": "akeyless:index/dynamicSecretMysql:DynamicSecretMysql",
+                "majorVersion": 1,
+                "fields": {
+                    "secure_access_host": {
+                        "maxItemsOne": false
+                    },
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "akeyless_dynamic_secret_oracle": {
+                "current": "akeyless:index/dynamicSecretOracle:DynamicSecretOracle",
+                "majorVersion": 1,
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "akeyless_dynamic_secret_postgresql": {
+                "current": "akeyless:index/dynamicSecretPostgresql:DynamicSecretPostgresql",
+                "majorVersion": 1,
+                "fields": {
+                    "secure_access_host": {
+                        "maxItemsOne": false
+                    },
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "akeyless_dynamic_secret_rdp": {
+                "current": "akeyless:index/dynamicSecretRdp:DynamicSecretRdp",
+                "majorVersion": 1,
+                "fields": {
+                    "secure_access_host": {
+                        "maxItemsOne": false
+                    },
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "akeyless_dynamic_secret_redshift": {
+                "current": "akeyless:index/dynamicSecretRedshift:DynamicSecretRedshift",
+                "majorVersion": 1,
+                "fields": {
+                    "secure_access_host": {
+                        "maxItemsOne": false
+                    },
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "akeyless_event_forwarder_email": {
+                "current": "akeyless:index/eventForwarderEmail:EventForwarderEmail",
+                "majorVersion": 1,
+                "fields": {
+                    "auth_methods_event_source_locations": {
+                        "maxItemsOne": false
+                    },
+                    "event_types": {
+                        "maxItemsOne": false
+                    },
+                    "gateways_event_source_locations": {
+                        "maxItemsOne": false
+                    },
+                    "items_event_source_locations": {
+                        "maxItemsOne": false
+                    },
+                    "targets_event_source_locations": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "akeyless_event_forwarder_service_now": {
+                "current": "akeyless:index/eventForwarderServiceNow:EventForwarderServiceNow",
+                "majorVersion": 1,
+                "fields": {
+                    "auth_methods_event_source_locations": {
+                        "maxItemsOne": false
+                    },
+                    "event_types": {
+                        "maxItemsOne": false
+                    },
+                    "gateways_event_source_locations": {
+                        "maxItemsOne": false
+                    },
+                    "items_event_source_locations": {
+                        "maxItemsOne": false
+                    },
+                    "targets_event_source_locations": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "akeyless_event_forwarder_slack": {
+                "current": "akeyless:index/eventForwarderSlack:EventForwarderSlack",
+                "majorVersion": 1,
+                "fields": {
+                    "auth_methods_event_source_locations": {
+                        "maxItemsOne": false
+                    },
+                    "event_types": {
+                        "maxItemsOne": false
+                    },
+                    "gateways_event_source_locations": {
+                        "maxItemsOne": false
+                    },
+                    "items_event_source_locations": {
+                        "maxItemsOne": false
+                    },
+                    "targets_event_source_locations": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "akeyless_event_forwarder_webhook": {
+                "current": "akeyless:index/eventForwarderWebhook:EventForwarderWebhook",
+                "majorVersion": 1,
+                "fields": {
+                    "auth_methods_event_source_locations": {
+                        "maxItemsOne": false
+                    },
+                    "event_types": {
+                        "maxItemsOne": false
+                    },
+                    "gateways_event_source_locations": {
+                        "maxItemsOne": false
+                    },
+                    "items_event_source_locations": {
+                        "maxItemsOne": false
+                    },
+                    "targets_event_source_locations": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "akeyless_folder": {
+                "current": "akeyless:index/folder:Folder",
+                "majorVersion": 1,
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "akeyless_gateway_allowed_access": {
+                "current": "akeyless:index/gatewayAllowedAccess:GatewayAllowedAccess",
+                "majorVersion": 1
+            },
+            "akeyless_gateway_cache": {
+                "current": "akeyless:index/gatewayCache:GatewayCache",
+                "majorVersion": 1
+            },
+            "akeyless_gateway_defaults": {
+                "current": "akeyless:index/gatewayDefaults:GatewayDefaults",
+                "majorVersion": 1
+            },
+            "akeyless_gateway_log_forwarding_aws_s3": {
+                "current": "akeyless:index/gatewayLogForwardingAwsS3:GatewayLogForwardingAwsS3",
+                "majorVersion": 1
+            },
+            "akeyless_gateway_log_forwarding_azure_analytics": {
+                "current": "akeyless:index/gatewayLogForwardingAzureAnalytics:GatewayLogForwardingAzureAnalytics",
+                "majorVersion": 1
+            },
+            "akeyless_gateway_log_forwarding_datadog": {
+                "current": "akeyless:index/gatewayLogForwardingDatadog:GatewayLogForwardingDatadog",
+                "majorVersion": 1
+            },
+            "akeyless_gateway_log_forwarding_elasticsearch": {
+                "current": "akeyless:index/gatewayLogForwardingElasticsearch:GatewayLogForwardingElasticsearch",
+                "majorVersion": 1
+            },
+            "akeyless_gateway_log_forwarding_google_chronicle": {
+                "current": "akeyless:index/gatewayLogForwardingGoogleChronicle:GatewayLogForwardingGoogleChronicle",
+                "majorVersion": 1
+            },
+            "akeyless_gateway_log_forwarding_logstash": {
+                "current": "akeyless:index/gatewayLogForwardingLogstash:GatewayLogForwardingLogstash",
+                "majorVersion": 1
+            },
+            "akeyless_gateway_log_forwarding_logz_io": {
+                "current": "akeyless:index/gatewayLogForwardingLogzIo:GatewayLogForwardingLogzIo",
+                "majorVersion": 1
+            },
+            "akeyless_gateway_log_forwarding_splunk": {
+                "current": "akeyless:index/gatewayLogForwardingSplunk:GatewayLogForwardingSplunk",
+                "majorVersion": 1
+            },
+            "akeyless_gateway_log_forwarding_stdout": {
+                "current": "akeyless:index/gatewayLogForwardingStdout:GatewayLogForwardingStdout",
+                "majorVersion": 1
+            },
+            "akeyless_gateway_log_forwarding_sumologic": {
+                "current": "akeyless:index/gatewayLogForwardingSumologic:GatewayLogForwardingSumologic",
+                "majorVersion": 1
+            },
+            "akeyless_gateway_log_forwarding_syslog": {
+                "current": "akeyless:index/gatewayLogForwardingSyslog:GatewayLogForwardingSyslog",
+                "majorVersion": 1
+            },
+            "akeyless_gateway_remote_access": {
+                "current": "akeyless:index/gatewayRemoteAccess:GatewayRemoteAccess",
+                "majorVersion": 1
+            },
+            "akeyless_gateway_remote_access_rdp_recording": {
+                "current": "akeyless:index/gatewayRemoteAccessRdpRecording:GatewayRemoteAccessRdpRecording",
+                "majorVersion": 1
+            },
+            "akeyless_k8s_auth_config": {
+                "current": "akeyless:index/k8sAuthConfig:K8sAuthConfig",
+                "majorVersion": 1
+            },
+            "akeyless_pki_cert_issuer": {
+                "current": "akeyless:index/pkiCertIssuer:PkiCertIssuer",
+                "majorVersion": 1,
+                "fields": {
+                    "expiration_event_in": {
+                        "maxItemsOne": false
+                    },
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "akeyless_producer_artifactory": {
+                "current": "akeyless:index/producerArtifactory:ProducerArtifactory",
+                "majorVersion": 1,
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "akeyless_producer_aws": {
+                "current": "akeyless:index/producerAws:ProducerAws",
+                "majorVersion": 1,
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "akeyless_producer_azure": {
+                "current": "akeyless:index/producerAzure:ProducerAzure",
+                "majorVersion": 1,
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "akeyless_producer_cassandra": {
+                "current": "akeyless:index/producerCassandra:ProducerCassandra",
+                "majorVersion": 1,
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "akeyless_producer_custom": {
+                "current": "akeyless:index/producerCustom:ProducerCustom",
+                "majorVersion": 1,
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "akeyless_producer_eks": {
+                "current": "akeyless:index/producerEks:ProducerEks",
+                "majorVersion": 1,
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "akeyless_producer_gcp": {
+                "current": "akeyless:index/producerGcp:ProducerGcp",
+                "majorVersion": 1,
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "akeyless_producer_github": {
+                "current": "akeyless:index/producerGithub:ProducerGithub",
+                "majorVersion": 1,
+                "fields": {
+                    "token_permissions": {
+                        "maxItemsOne": false
+                    },
+                    "token_repositories": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "akeyless_producer_gke": {
+                "current": "akeyless:index/producerGke:ProducerGke",
+                "majorVersion": 1,
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "akeyless_producer_k8s": {
+                "current": "akeyless:index/producerK8s:ProducerK8s",
+                "majorVersion": 1,
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "akeyless_producer_mongo": {
+                "current": "akeyless:index/producerMongo:ProducerMongo",
+                "majorVersion": 1,
+                "fields": {
+                    "secure_access_host": {
+                        "maxItemsOne": false
+                    },
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "akeyless_producer_mssql": {
+                "current": "akeyless:index/producerMssql:ProducerMssql",
+                "majorVersion": 1,
+                "fields": {
+                    "secure_access_host": {
+                        "maxItemsOne": false
+                    },
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "akeyless_producer_mysql": {
+                "current": "akeyless:index/producerMysql:ProducerMysql",
+                "majorVersion": 1,
+                "fields": {
+                    "secure_access_host": {
+                        "maxItemsOne": false
+                    },
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "akeyless_producer_oracle": {
+                "current": "akeyless:index/producerOracle:ProducerOracle",
+                "majorVersion": 1,
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "akeyless_producer_postgres": {
+                "current": "akeyless:index/producerPostgres:ProducerPostgres",
+                "majorVersion": 1,
+                "fields": {
+                    "secure_access_host": {
+                        "maxItemsOne": false
+                    },
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "akeyless_producer_rdp": {
+                "current": "akeyless:index/producerRdp:ProducerRdp",
+                "majorVersion": 1,
+                "fields": {
+                    "secure_access_host": {
+                        "maxItemsOne": false
+                    },
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "akeyless_producer_redshift": {
+                "current": "akeyless:index/producerRedshift:ProducerRedshift",
+                "majorVersion": 1,
+                "fields": {
+                    "secure_access_host": {
+                        "maxItemsOne": false
+                    },
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "akeyless_role": {
+                "current": "akeyless:index/role:Role",
+                "majorVersion": 1,
+                "fields": {
+                    "assoc_auth_method": {
+                        "maxItemsOne": false
+                    },
+                    "restricted_rules": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "capability": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "rules": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "capability": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "akeyless_rotated_secret": {
+                "current": "akeyless:index/rotatedSecret:RotatedSecret",
+                "majorVersion": 1,
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "akeyless_rotated_secret_aws": {
+                "current": "akeyless:index/rotatedSecretAws:RotatedSecretAws",
+                "majorVersion": 1,
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "akeyless_rotated_secret_azure": {
+                "current": "akeyless:index/rotatedSecretAzure:RotatedSecretAzure",
+                "majorVersion": 1,
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "akeyless_rotated_secret_cassandra": {
+                "current": "akeyless:index/rotatedSecretCassandra:RotatedSecretCassandra",
+                "majorVersion": 1,
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "akeyless_rotated_secret_custom": {
+                "current": "akeyless:index/rotatedSecretCustom:RotatedSecretCustom",
+                "majorVersion": 1,
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "akeyless_rotated_secret_dockerhub": {
+                "current": "akeyless:index/rotatedSecretDockerhub:RotatedSecretDockerhub",
+                "majorVersion": 1,
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "akeyless_rotated_secret_gcp": {
+                "current": "akeyless:index/rotatedSecretGcp:RotatedSecretGcp",
+                "majorVersion": 1,
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "akeyless_rotated_secret_hanadb": {
+                "current": "akeyless:index/rotatedSecretHanadb:RotatedSecretHanadb",
+                "majorVersion": 1,
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "akeyless_rotated_secret_ldap": {
+                "current": "akeyless:index/rotatedSecretLdap:RotatedSecretLdap",
+                "majorVersion": 1,
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "akeyless_rotated_secret_mongodb": {
+                "current": "akeyless:index/rotatedSecretMongodb:RotatedSecretMongodb",
+                "majorVersion": 1,
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "akeyless_rotated_secret_mssql": {
+                "current": "akeyless:index/rotatedSecretMssql:RotatedSecretMssql",
+                "majorVersion": 1,
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "akeyless_rotated_secret_mysql": {
+                "current": "akeyless:index/rotatedSecretMysql:RotatedSecretMysql",
+                "majorVersion": 1,
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "akeyless_rotated_secret_oracle": {
+                "current": "akeyless:index/rotatedSecretOracle:RotatedSecretOracle",
+                "majorVersion": 1,
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "akeyless_rotated_secret_postgresql": {
+                "current": "akeyless:index/rotatedSecretPostgresql:RotatedSecretPostgresql",
+                "majorVersion": 1,
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "akeyless_rotated_secret_redis": {
+                "current": "akeyless:index/rotatedSecretRedis:RotatedSecretRedis",
+                "majorVersion": 1,
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "akeyless_rotated_secret_redshift": {
+                "current": "akeyless:index/rotatedSecretRedshift:RotatedSecretRedshift",
+                "majorVersion": 1,
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "akeyless_rotated_secret_snowflake": {
+                "current": "akeyless:index/rotatedSecretSnowflake:RotatedSecretSnowflake",
+                "majorVersion": 1,
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "akeyless_rotated_secret_ssh": {
+                "current": "akeyless:index/rotatedSecretSsh:RotatedSecretSsh",
+                "majorVersion": 1,
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "akeyless_rotated_secret_sync": {
+                "current": "akeyless:index/rotatedSecretSync:RotatedSecretSync",
+                "majorVersion": 1
+            },
+            "akeyless_rotated_secret_windows": {
+                "current": "akeyless:index/rotatedSecretWindows:RotatedSecretWindows",
+                "majorVersion": 1,
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "akeyless_ssh_cert_issuer": {
+                "current": "akeyless:index/sshCertIssuer:SshCertIssuer",
+                "majorVersion": 1,
+                "fields": {
+                    "secure_access_host": {
+                        "maxItemsOne": false
+                    },
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "akeyless_static_secret": {
+                "current": "akeyless:index/staticSecret:StaticSecret",
+                "majorVersion": 1,
+                "fields": {
+                    "inject_url": {
+                        "maxItemsOne": false
+                    },
+                    "secure_access_host": {
+                        "maxItemsOne": false
+                    },
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "akeyless_static_secret_sync": {
+                "current": "akeyless:index/staticSecretSync:StaticSecretSync",
+                "majorVersion": 1
+            },
+            "akeyless_target_artifactory": {
+                "current": "akeyless:index/targetArtifactory:TargetArtifactory",
+                "majorVersion": 1
+            },
+            "akeyless_target_aws": {
+                "current": "akeyless:index/targetAws:TargetAws",
+                "majorVersion": 1
+            },
+            "akeyless_target_azure": {
+                "current": "akeyless:index/targetAzure:TargetAzure",
+                "majorVersion": 1
+            },
+            "akeyless_target_db": {
+                "current": "akeyless:index/targetDb:TargetDb",
+                "majorVersion": 1
+            },
+            "akeyless_target_eks": {
+                "current": "akeyless:index/targetEks:TargetEks",
+                "majorVersion": 1
+            },
+            "akeyless_target_gcp": {
+                "current": "akeyless:index/targetGcp:TargetGcp",
+                "majorVersion": 1
+            },
+            "akeyless_target_github": {
+                "current": "akeyless:index/targetGithub:TargetGithub",
+                "majorVersion": 1
+            },
+            "akeyless_target_gitlab": {
+                "current": "akeyless:index/targetGitlab:TargetGitlab",
+                "majorVersion": 1
+            },
+            "akeyless_target_gke": {
+                "current": "akeyless:index/targetGke:TargetGke",
+                "majorVersion": 1
+            },
+            "akeyless_target_globalsign": {
+                "current": "akeyless:index/targetGlobalsign:TargetGlobalsign",
+                "majorVersion": 1
+            },
+            "akeyless_target_k8s": {
+                "current": "akeyless:index/targetK8s:TargetK8s",
+                "majorVersion": 1
+            },
+            "akeyless_target_linked": {
+                "current": "akeyless:index/targetLinked:TargetLinked",
+                "majorVersion": 1
+            },
+            "akeyless_target_rabbit": {
+                "current": "akeyless:index/targetRabbit:TargetRabbit",
+                "majorVersion": 1
+            },
+            "akeyless_target_ssh": {
+                "current": "akeyless:index/targetSsh:TargetSsh",
+                "majorVersion": 1
+            },
+            "akeyless_target_web": {
+                "current": "akeyless:index/targetWeb:TargetWeb",
+                "majorVersion": 1
+            },
+            "akeyless_target_windows": {
+                "current": "akeyless:index/targetWindows:TargetWindows",
+                "majorVersion": 1
+            },
+            "akeyless_target_zerossl": {
+                "current": "akeyless:index/targetZerossl:TargetZerossl",
+                "majorVersion": 1
+            },
+            "akeyless_tokenizer": {
+                "current": "akeyless:index/tokenizer:Tokenizer",
+                "majorVersion": 1,
+                "fields": {
+                    "tag": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "akeyless_usc": {
+                "current": "akeyless:index/usc:Usc",
+                "majorVersion": 1,
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "akeyless_usc_secret": {
+                "current": "akeyless:index/uscSecret:UscSecret",
+                "majorVersion": 1,
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            }
+        },
+        "datasources": {
+            "akeyless_auth": {
+                "current": "akeyless:index/getAuth:getAuth",
+                "majorVersion": 1,
+                "fields": {
+                    "api_key_login": {
+                        "maxItemsOne": false
+                    },
+                    "aws_iam_login": {
+                        "maxItemsOne": false
+                    },
+                    "azure_ad_login": {
+                        "maxItemsOne": false
+                    },
+                    "cert_login": {
+                        "maxItemsOne": false
+                    },
+                    "email_login": {
+                        "maxItemsOne": false
+                    },
+                    "gcp_login": {
+                        "maxItemsOne": false
+                    },
+                    "jwt_login": {
+                        "maxItemsOne": false
+                    },
+                    "uid_login": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "akeyless_auth_method": {
+                "current": "akeyless:index/getAuthMethod:getAuthMethod",
+                "majorVersion": 1
+            },
+            "akeyless_certificate": {
+                "current": "akeyless:index/getCertificate:getCertificate",
+                "majorVersion": 1
+            },
+            "akeyless_csr": {
+                "current": "akeyless:index/getCsr:getCsr",
+                "majorVersion": 1
+            },
+            "akeyless_detokenize": {
+                "current": "akeyless:index/getDetokenize:getDetokenize",
+                "majorVersion": 1
+            },
+            "akeyless_dynamic_secret": {
+                "current": "akeyless:index/getDynamicSecret:getDynamicSecret",
+                "majorVersion": 1
+            },
+            "akeyless_items": {
+                "current": "akeyless:index/getItems:getItems",
+                "majorVersion": 1,
+                "fields": {
+                    "items": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "akeyless_k8s_auth_config": {
+                "current": "akeyless:index/getK8sAuthConfig:getK8sAuthConfig",
+                "majorVersion": 1,
+                "fields": {
+                    "k8s_pub_keys_pem": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "akeyless_kube_exec_creds": {
+                "current": "akeyless:index/getKubeExecCreds:getKubeExecCreds",
+                "majorVersion": 1
+            },
+            "akeyless_pki_certificate": {
+                "current": "akeyless:index/getPkiCertificate:getPkiCertificate",
+                "majorVersion": 1
+            },
+            "akeyless_producer_tmp_creds": {
+                "current": "akeyless:index/getProducerTmpCreds:getProducerTmpCreds",
+                "majorVersion": 1
+            },
+            "akeyless_reset_access_key": {
+                "current": "akeyless:index/getResetAccessKey:getResetAccessKey",
+                "majorVersion": 1
+            },
+            "akeyless_role": {
+                "current": "akeyless:index/getRole:getRole",
+                "majorVersion": 1
+            },
+            "akeyless_rotated_secret": {
+                "current": "akeyless:index/getRotatedSecret:getRotatedSecret",
+                "majorVersion": 1
+            },
+            "akeyless_rsa_pub": {
+                "current": "akeyless:index/getRsaPub:getRsaPub",
+                "majorVersion": 1
+            },
+            "akeyless_secret": {
+                "current": "akeyless:index/getSecret:getSecret",
+                "majorVersion": 1
+            },
+            "akeyless_ssh_certificate": {
+                "current": "akeyless:index/getSshCertificate:getSshCertificate",
+                "majorVersion": 1
+            },
+            "akeyless_static_secret": {
+                "current": "akeyless:index/getStaticSecret:getStaticSecret",
+                "majorVersion": 1,
+                "fields": {
+                    "inject_url": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "akeyless_tags": {
+                "current": "akeyless:index/getTags:getTags",
+                "majorVersion": 1,
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "akeyless_target": {
+                "current": "akeyless:index/getTarget:getTarget",
+                "majorVersion": 1,
+                "fields": {
+                    "client_permissions": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "akeyless_target_details": {
+                "current": "akeyless:index/getTargetDetails:getTargetDetails",
+                "majorVersion": 1
+            },
+            "akeyless_tokenize": {
+                "current": "akeyless:index/getTokenize:getTokenize",
+                "majorVersion": 1
+            }
+        }
+    },
+    "auto-settings": {}
+}

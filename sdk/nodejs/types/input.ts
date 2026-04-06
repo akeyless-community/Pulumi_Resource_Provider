@@ -4,5 +4,321 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
-import * as enums from "../types/enums";
 
+export interface AuthMethodApiKey {
+}
+
+export interface AuthMethodAwsIam {
+    /**
+     * A list of full arns that the access is restricted to
+     */
+    boundArns?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A list of AWS account-IDs that the access is restricted to
+     */
+    boundAwsAccountIds: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A list of full resource ids that the access is restricted to
+     */
+    boundResourceIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A list of full role ids that the access is restricted to
+     */
+    boundRoleIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A list of full role-name that the access is restricted to
+     */
+    boundRoleNames?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A list of full user ids that the access is restricted to
+     */
+    boundUserIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A list of full user-name that the access is restricted to
+     */
+    boundUserNames?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * STS URL (default: https://sts.amazonaws.com)
+     */
+    stsUrl?: pulumi.Input<string>;
+}
+
+export interface AuthMethodAzureAd {
+    /**
+     * A list of group ids that the access is restricted to
+     */
+    boundGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A list of resource providers that the access is restricted to (e.g, Microsoft.Compute, Microsoft.ManagedIdentity, etc)
+     */
+    boundProviders?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A list of full resource ids that the access is restricted to
+     */
+    boundResourceIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A list of resource names that the access is restricted to (e.g, a virtual machine name, scale set name, etc)
+     */
+    boundResourceNames?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A list of resource types that the access is restricted to (e.g, virtualMachines, userAssignedIdentities, etc)
+     */
+    boundResourceTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A list of resource groups that the access is restricted to
+     */
+    boundRgIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A list of service principal IDs that the access is restricted to
+     */
+    boundSpids?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A list of subscription ids that the access is restricted to
+     */
+    boundSubIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The Azure tenant id that the access is restricted to
+     */
+    boundTenantId: pulumi.Input<string>;
+    /**
+     * The audience in the JWT
+     */
+    customAudience?: pulumi.Input<string>;
+    /**
+     * Issuer URL
+     */
+    customIssuer?: pulumi.Input<string>;
+    /**
+     * The URL to the JSON Web Key Set (JWKS) that containing the public keys that should be used to verify any JSON Web Token (JWT) issued by the authorization server
+     */
+    jwksUri?: pulumi.Input<string>;
+}
+
+export interface AuthMethodGcp {
+    /**
+     * The audience to verify in the JWT received by the client
+     */
+    audience?: pulumi.Input<string>;
+    /**
+     * IAM GCE Auth Method
+     */
+    gces?: pulumi.Input<pulumi.Input<inputs.AuthMethodGcpGce>[]>;
+    /**
+     * IAM GCP Auth Method
+     */
+    iams?: pulumi.Input<pulumi.Input<inputs.AuthMethodGcpIam>[]>;
+    /**
+     * Service Account creds data, base64 encoded
+     */
+    serviceAccountCredsData: pulumi.Input<string>;
+}
+
+export interface AuthMethodGcpGce {
+    /**
+     * GCE only. A list of GCP labels formatted as "key:value" pairs that must be set on instances in order to authenticate
+     */
+    boundLabels?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * GCE only. A list of regions. GCE instances must belong to any of the provided regions in order to authenticate
+     */
+    boundRegions?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * GCE only. A list of zones. GCE instances must belong to any of the provided zones in order to authenticate
+     */
+    boundZones?: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface AuthMethodGcpIam {
+    /**
+     * IAM only. A list of Service Accounts. Clients must belong to any of the provided service accounts in order to authenticate
+     */
+    boundServiceAccounts?: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface AuthMethodSaml {
+    /**
+     * IDP metadata url
+     */
+    idpMetadataUrl?: pulumi.Input<string>;
+    /**
+     * IDP metadata xml data
+     */
+    idpMetadataXmlData?: pulumi.Input<string>;
+    /**
+     * A unique identifier (ID) value should be configured for OAuth2, LDAP and SAML authentication method types and is usually a value such as the email, username, or upn for example
+     */
+    uniqueIdentifier: pulumi.Input<string>;
+}
+
+export interface GetAuthApiKeyLogin {
+    accessId: string;
+    accessKey: string;
+}
+
+export interface GetAuthApiKeyLoginArgs {
+    accessId: pulumi.Input<string>;
+    accessKey: pulumi.Input<string>;
+}
+
+export interface GetAuthAwsIamLogin {
+    accessId: string;
+}
+
+export interface GetAuthAwsIamLoginArgs {
+    accessId: pulumi.Input<string>;
+}
+
+export interface GetAuthAzureAdLogin {
+    accessId: string;
+}
+
+export interface GetAuthAzureAdLoginArgs {
+    accessId: pulumi.Input<string>;
+}
+
+export interface GetAuthCertLogin {
+    accessId: string;
+    certData?: string;
+    certFileName?: string;
+    keyData?: string;
+    keyFileName?: string;
+}
+
+export interface GetAuthCertLoginArgs {
+    accessId: pulumi.Input<string>;
+    certData?: pulumi.Input<string>;
+    certFileName?: pulumi.Input<string>;
+    keyData?: pulumi.Input<string>;
+    keyFileName?: pulumi.Input<string>;
+}
+
+export interface GetAuthEmailLogin {
+    adminEmail: string;
+    adminPassword: string;
+}
+
+export interface GetAuthEmailLoginArgs {
+    adminEmail: pulumi.Input<string>;
+    adminPassword: pulumi.Input<string>;
+}
+
+export interface GetAuthGcpLogin {
+    accessId: string;
+    audience?: string;
+}
+
+export interface GetAuthGcpLoginArgs {
+    accessId: pulumi.Input<string>;
+    audience?: pulumi.Input<string>;
+}
+
+export interface GetAuthJwtLogin {
+    accessId: string;
+    jwt: string;
+}
+
+export interface GetAuthJwtLoginArgs {
+    accessId: pulumi.Input<string>;
+    jwt: pulumi.Input<string>;
+}
+
+export interface GetAuthUidLogin {
+    accessId?: string;
+    uidToken: string;
+}
+
+export interface GetAuthUidLoginArgs {
+    accessId?: pulumi.Input<string>;
+    uidToken: pulumi.Input<string>;
+}
+
+export interface ProviderApiKeyLogin {
+    accessId: pulumi.Input<string>;
+    accessKey: pulumi.Input<string>;
+}
+
+export interface ProviderAwsIamLogin {
+    accessId: pulumi.Input<string>;
+}
+
+export interface ProviderAzureAdLogin {
+    accessId: pulumi.Input<string>;
+}
+
+export interface ProviderCertLogin {
+    accessId: pulumi.Input<string>;
+    certData?: pulumi.Input<string>;
+    certFileName?: pulumi.Input<string>;
+    keyData?: pulumi.Input<string>;
+    keyFileName?: pulumi.Input<string>;
+}
+
+export interface ProviderEmailLogin {
+    adminEmail: pulumi.Input<string>;
+    adminPassword: pulumi.Input<string>;
+}
+
+export interface ProviderGcpLogin {
+    accessId: pulumi.Input<string>;
+    audience?: pulumi.Input<string>;
+}
+
+export interface ProviderJwtLogin {
+    accessId: pulumi.Input<string>;
+    jwt: pulumi.Input<string>;
+}
+
+export interface ProviderTokenLogin {
+    token: pulumi.Input<string>;
+}
+
+export interface ProviderUidLogin {
+    accessId?: pulumi.Input<string>;
+    uidToken: pulumi.Input<string>;
+}
+
+export interface RoleAssocAuthMethod {
+    /**
+     * The access ID of the auth method
+     */
+    accessId?: pulumi.Input<string>;
+    /**
+     * The auth method to associate
+     */
+    amName: pulumi.Input<string>;
+    /**
+     * The association ID
+     */
+    assocId?: pulumi.Input<string>;
+    /**
+     * Treat sub claims as case-sensitive
+     */
+    caseSensitive?: pulumi.Input<string>;
+    /**
+     * key/val of sub claims, e.g group=admins,developers
+     */
+    subClaims?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+}
+
+export interface RoleRestrictedRule {
+    capabilities?: pulumi.Input<pulumi.Input<string>[]>;
+    path?: pulumi.Input<string>;
+    ruleType?: pulumi.Input<string>;
+}
+
+export interface RoleRule {
+    /**
+     * List of the approved/denied capabilities in the path options: [read, create, update, delete, list, deny] for sra-rule type: [allow_access, request_access, justify_access_only, approval_authority, upload_files, downloadFiles]
+     */
+    capabilities: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The path the rule refers to
+     */
+    path: pulumi.Input<string>;
+    /**
+     * item-rule, target-rule, role-rule, auth-method-rule, sra-rule
+     */
+    ruleType?: pulumi.Input<string>;
+}
+export namespace config {
+}

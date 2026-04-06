@@ -7,17 +7,24 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Xyz
+namespace Pulumi.Akeyless
 {
     /// <summary>
-    /// The provider type for the xyz package. By default, resources use package-wide configuration
+    /// The provider type for the akeyless package. By default, resources use package-wide configuration
     /// settings, however an explicit `Provider` instance may be created and passed during resource
     /// construction to achieve fine-grained programmatic control over provider settings. See the
     /// [documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.
     /// </summary>
-    [XyzResourceType("pulumi:providers:xyz")]
+    [AkeylessResourceType("pulumi:providers:akeyless")]
     public partial class Provider : global::Pulumi.ProviderResource
     {
+        /// <summary>
+        /// Origin URL of the API Gateway server. This is a URL with a scheme, a hostname and a port.
+        /// </summary>
+        [Output("apiGatewayAddress")]
+        public Output<string?> ApiGatewayAddress { get; private set; } = null!;
+
+
         /// <summary>
         /// Create a Provider resource with the given unique name, arguments, and options.
         /// </summary>
@@ -26,7 +33,7 @@ namespace Pulumi.Xyz
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Provider(string name, ProviderArgs? args = null, CustomResourceOptions? options = null)
-            : base("xyz", name, args ?? new ProviderArgs(), MakeResourceOptions(options, ""))
+            : base("akeyless", name, args ?? new ProviderArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -46,16 +53,124 @@ namespace Pulumi.Xyz
         /// This function returns a Terraform config object with terraform-namecased keys,to be used with the Terraform Module Provider.
         /// </summary>
         public global::Pulumi.Output<ProviderTerraformConfigResult> TerraformConfig()
-            => global::Pulumi.Deployment.Instance.Call<ProviderTerraformConfigResult>("pulumi:providers:xyz/terraformConfig", CallArgs.Empty, this);
+            => global::Pulumi.Deployment.Instance.Call<ProviderTerraformConfigResult>("pulumi:providers:akeyless/terraformConfig", CallArgs.Empty, this);
     }
 
     public sealed class ProviderArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A region which should be used.
+        /// Origin URL of the API Gateway server. This is a URL with a scheme, a hostname and a port.
         /// </summary>
-        [Input("region", json: true)]
-        public Input<Pulumi.Xyz.Region.Region>? Region { get; set; }
+        [Input("apiGatewayAddress")]
+        public Input<string>? ApiGatewayAddress { get; set; }
+
+        [Input("apiKeyLogins", json: true)]
+        private InputList<Inputs.ProviderApiKeyLoginArgs>? _apiKeyLogins;
+
+        /// <summary>
+        /// A configuration block, described below, that attempts to authenticate using API-Key.
+        /// </summary>
+        public InputList<Inputs.ProviderApiKeyLoginArgs> ApiKeyLogins
+        {
+            get => _apiKeyLogins ?? (_apiKeyLogins = new InputList<Inputs.ProviderApiKeyLoginArgs>());
+            set => _apiKeyLogins = value;
+        }
+
+        [Input("awsIamLogins", json: true)]
+        private InputList<Inputs.ProviderAwsIamLoginArgs>? _awsIamLogins;
+
+        /// <summary>
+        /// A configuration block, described below, that attempts to authenticate using AWS-IAM authentication credentials.
+        /// </summary>
+        public InputList<Inputs.ProviderAwsIamLoginArgs> AwsIamLogins
+        {
+            get => _awsIamLogins ?? (_awsIamLogins = new InputList<Inputs.ProviderAwsIamLoginArgs>());
+            set => _awsIamLogins = value;
+        }
+
+        [Input("azureAdLogins", json: true)]
+        private InputList<Inputs.ProviderAzureAdLoginArgs>? _azureAdLogins;
+
+        /// <summary>
+        /// A configuration block, described below, that attempts to authenticate using Azure Active Directory authentication.
+        /// </summary>
+        public InputList<Inputs.ProviderAzureAdLoginArgs> AzureAdLogins
+        {
+            get => _azureAdLogins ?? (_azureAdLogins = new InputList<Inputs.ProviderAzureAdLoginArgs>());
+            set => _azureAdLogins = value;
+        }
+
+        [Input("certLogins", json: true)]
+        private InputList<Inputs.ProviderCertLoginArgs>? _certLogins;
+
+        /// <summary>
+        /// A configuration block, described below, that attempts to authenticate using Certificate authentication.  The Certificate and the Private key can be provided as a command line variable or it will be pulled out of an environment variable named AKEYLESS_AUTH_CERT and AKEYLESS_AUTH_KEY.
+        /// </summary>
+        public InputList<Inputs.ProviderCertLoginArgs> CertLogins
+        {
+            get => _certLogins ?? (_certLogins = new InputList<Inputs.ProviderCertLoginArgs>());
+            set => _certLogins = value;
+        }
+
+        [Input("emailLogins", json: true)]
+        private InputList<Inputs.ProviderEmailLoginArgs>? _emailLogins;
+
+        /// <summary>
+        /// A configuration block, described below, that attempts to authenticate using email and password.
+        /// </summary>
+        public InputList<Inputs.ProviderEmailLoginArgs> EmailLogins
+        {
+            get => _emailLogins ?? (_emailLogins = new InputList<Inputs.ProviderEmailLoginArgs>());
+            set => _emailLogins = value;
+        }
+
+        [Input("gcpLogins", json: true)]
+        private InputList<Inputs.ProviderGcpLoginArgs>? _gcpLogins;
+
+        /// <summary>
+        /// A configuration block, described below, that attempts to authenticate using GCP-IAM authentication credentials.
+        /// </summary>
+        public InputList<Inputs.ProviderGcpLoginArgs> GcpLogins
+        {
+            get => _gcpLogins ?? (_gcpLogins = new InputList<Inputs.ProviderGcpLoginArgs>());
+            set => _gcpLogins = value;
+        }
+
+        [Input("jwtLogins", json: true)]
+        private InputList<Inputs.ProviderJwtLoginArgs>? _jwtLogins;
+
+        /// <summary>
+        /// A configuration block, described below, that attempts to authenticate using JWT authentication.  The JWT can be provided as a command line variable or it will be pulled out of an environment variable named AKEYLESS_AUTH_JWT.
+        /// </summary>
+        public InputList<Inputs.ProviderJwtLoginArgs> JwtLogins
+        {
+            get => _jwtLogins ?? (_jwtLogins = new InputList<Inputs.ProviderJwtLoginArgs>());
+            set => _jwtLogins = value;
+        }
+
+        [Input("tokenLogins", json: true)]
+        private InputList<Inputs.ProviderTokenLoginArgs>? _tokenLogins;
+
+        /// <summary>
+        /// A configuration block, described below, that attempts to authenticate using akeyless token. The token can be provided as a command line variable or it will be pulled out of an environment variable named AKEYLESS_AUTH_TOKEN.
+        /// </summary>
+        public InputList<Inputs.ProviderTokenLoginArgs> TokenLogins
+        {
+            get => _tokenLogins ?? (_tokenLogins = new InputList<Inputs.ProviderTokenLoginArgs>());
+            set => _tokenLogins = value;
+        }
+
+        [Input("uidLogins", json: true)]
+        private InputList<Inputs.ProviderUidLoginArgs>? _uidLogins;
+
+        /// <summary>
+        /// A configuration block, described below, that attempts to authenticate using Universal Identity authentication.
+        /// </summary>
+        public InputList<Inputs.ProviderUidLoginArgs> UidLogins
+        {
+            get => _uidLogins ?? (_uidLogins = new InputList<Inputs.ProviderUidLoginArgs>());
+            set => _uidLogins = value;
+        }
 
         public ProviderArgs()
         {
