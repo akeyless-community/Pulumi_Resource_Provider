@@ -96,20 +96,9 @@ pulumi destroy
 
 Integration tests (Go) live in `examples/`; they are skipped unless `AKEYLESS_ACCESS_ID` and `AKEYLESS_ACCESS_KEY` are set. See [examples/SMOKE.md](examples/SMOKE.md) for `go test` invocations.
 
-## GitHub Actions CI
+## Continuous integration
 
-Boilerplate workflows originally called **Pulumi ESC** (`imports/github-secrets`) with OIDC to the `pulumi` organization. That only works inside Pulumi’s own infrastructure; community repos get **401 Unauthorized** on the token exchange. These workflows are patched to use **GitHub repository (or organization) secrets** and a **GitHub App installation token** instead.
-
-Add these secrets so jobs such as **Upgrade provider**, **prerequisites**, **build**, and **lint** can authenticate to the API and clone private tooling:
-
-| Secret | Purpose |
-|--------|---------|
-| `PULUMI_PROVIDER_AUTOMATION_APP_ID` | Numeric App ID for a GitHub App installed on this repository (or org). |
-| `PULUMI_PROVIDER_AUTOMATION_PRIVATE_KEY` | PEM private key for that app (full key including `BEGIN` / `END` lines). |
-
-Install the app with permissions appropriate for automation (at minimum: **Contents** and **Pull requests** read/write where you want upgrade PRs; **Metadata** read). See [Creating a GitHub App](https://docs.github.com/en/apps/creating-github-apps/registering-a-github-app).
-
-Optional secrets for specific jobs: `CODECOV_TOKEN`; publishing (`PYPI_API_TOKEN`, `NPM_TOKEN`, `NUGET_PUBLISH_KEY`, Java/OSSRH-related names in `publish.yml`); `AZURE_SIGNING_*` for Windows signing; `RELEASE_BOT_ENDPOINT` / `RELEASE_BOT_KEY` only if you use Pulumi’s release-by-label integration.
+This repository does not run **GitHub Actions** workflows in CI. Build and test locally (for example `make build`, `make test_provider`, and the integration tests described in [examples/SMOKE.md](examples/SMOKE.md)). You can add your own `.github/workflows` later if you want automated builds.
 
 ## Repository layout
 
