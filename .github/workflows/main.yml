@@ -12,7 +12,6 @@ jobs:
     permissions:
       contents: read
       pull-requests: write
-      id-token: write # For ESC secrets.
     uses: ./.github/workflows/prerequisites.yml
     secrets: inherit
     with:
@@ -26,7 +25,6 @@ jobs:
     secrets: inherit
     permissions:
       contents: read
-      id-token: write # For ESC secrets.
     with:
       version: ${{ needs.prerequisites.outputs.version }}
 
@@ -37,7 +35,6 @@ jobs:
     secrets: inherit
     permissions:
       contents: write # For Renovate SDKs.
-      id-token: write # For ESC secrets.
     with:
       version: ${{ needs.prerequisites.outputs.version }}
 
@@ -48,7 +45,6 @@ jobs:
     secrets: inherit
     permissions:
       contents: write # For Renovate SDKs.
-      id-token: write # For ESC secrets.
     with:
       version: ${{ needs.prerequisites.outputs.version }}
 
@@ -65,7 +61,6 @@ jobs:
     name: publish
     permissions:
       contents: write
-      id-token: write
     needs:
       - prerequisites
       - build_provider
@@ -84,25 +79,18 @@ jobs:
     name: Tag release if labeled as needs-release
     needs: publish
     runs-on: ubuntu-latest
+    env:
+      RELEASE_BOT_ENDPOINT: ${{ secrets.RELEASE_BOT_ENDPOINT }}
+      RELEASE_BOT_KEY: ${{ secrets.RELEASE_BOT_KEY }}
     permissions:
       contents: read
-      id-token: write # For ESC secrets.
     steps:
     - name: Checkout Repo
       uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
       with:
         persist-credentials: false    
-    - env:
-        ESC_ACTION_ENVIRONMENT: imports/github-secrets
-        ESC_ACTION_EXPORT_ENVIRONMENT_VARIABLES: "false"
-        ESC_ACTION_OIDC_AUTH: "true"
-        ESC_ACTION_OIDC_ORGANIZATION: pulumi
-        ESC_ACTION_OIDC_REQUESTED_TOKEN_TYPE: urn:pulumi:token-type:access_token:organization
-      id: esc-secrets
-      name: Fetch secrets from ESC
-      uses: pulumi/esc-action@9eb774255b1a4afb7855678ae8d4a77359da0d9b
     - name: check if this commit needs release
-      if: ${{ env.RELEASE_BOT_ENDPOINT != '' }}
+      if: env.RELEASE_BOT_ENDPOINT != ''
       uses: pulumi/action-release-by-pr-label@main
       with:
         command: "release-if-needed"
@@ -110,8 +98,6 @@ jobs:
         commit: ${{ github.sha }}
         slack_channel: C02MGR8JVST
       env:
-        RELEASE_BOT_ENDPOINT: ${{ steps.esc-secrets.outputs.RELEASE_BOT_ENDPOINT }}
-        RELEASE_BOT_KEY: ${{ steps.esc-secrets.outputs.RELEASE_BOT_KEY }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   test:
@@ -122,7 +108,6 @@ jobs:
       - build_sdk
     permissions:
       contents: read
-      id-token: write
     secrets: inherit
     with:
       version: ${{ needs.prerequisites.outputs.version }}
