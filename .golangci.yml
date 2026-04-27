@@ -33,7 +33,7 @@ formatters:
         - blank
         - default
         - prefix(github.com/pulumi/)
-        - prefix(github.com/pulumi/pulumi-xyz)
+        - prefix(github.com/akeyless-community/pulumi-akeyless)
       custom-order: true
   exclusions:
     generated: lax
