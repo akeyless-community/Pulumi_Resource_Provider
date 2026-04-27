@@ -1,35 +1,28 @@
-# Contributing to the Pulumi ecosystem
+# Contributing
 
-Do you want to contribute to Pulumi? Awesome! We are so happy to have you.
-We have a few tips and housekeeping items to help you get up and running.
+Thank you for helping improve this provider.
 
-## Code of Conduct
+## Code of conduct
 
-Please make sure to read and observe our [Code of Conduct](./CODE-OF-CONDUCT.md)
+Participation is governed by the [Contributor Covenant](CODE-OF-CONDUCT.md).
 
-## Community Expectations
+## Development setup
 
-Please read about our [contribution guidelines here.](https://github.com/pulumi/pulumi/blob/master/CONTRIBUTING.md#communications)
+1. Install [Go](https://go.dev/dl/), the [Pulumi CLI](https://www.pulumi.com/docs/install/), and (for a full build) [.NET SDK](https://dotnet.microsoft.com/download), Node.js, and Python as needed.
+2. From the repository root:
+   - `make build` — provider + all SDKs (slow first time).
+   - `make provider` — provider binary only (faster iteration).
+   - `make test_provider` — provider tests.
 
-## Setting up your development environment
+## Smoke / integration tests
 
-### Pulumi prerequisites
+End-to-end examples and environment variables are documented in [examples/SMOKE.md](examples/SMOKE.md). Integration tests under `examples/` are skipped unless `AKEYLESS_ACCESS_ID` and `AKEYLESS_ACCESS_KEY` are set.
 
-Please refer to the [main Pulumi repo](https://github.com/pulumi/pulumi/)'s [CONTRIBUTING.md file](
-https://github.com/pulumi/pulumi/blob/master/CONTRIBUTING.md#developing) for details on how to get set up with Pulumi.
+## Pull requests
 
-## Committing Generated Code
+- Keep changes focused and describe **what** changed and **why** in the PR description.
+- Run `make test_provider` (and relevant smoke tests if you touch examples) before submitting.
 
-You must generate and check in the SDKs on each pull request containing a code change, e.g. adding a new resource to `resources.go`.
+## Regenerating SDKs
 
-1. Run `make build_sdks` from the root of this repository
-1. Open a pull request containing all changes
-1. *Note:* If a large number of seemingly-unrelated diffs are produced by `make build_sdks` (for example, lots of changes to comments unrelated to the change you are making), ensure that the latest dependencies for the provider are installed by running `go mod tidy` in the `provider/` directory of this repository.
-
-## Running Integration Tests
-
-The examples and integration tests in this repository will create and destroy real
-cloud resources while running. Before running these tests, make sure that you have
-configured access to your cloud provider with Pulumi.
-
-*TODO: Add any steps you need to take to run integration tests here*
+If you change `provider/resources.go` or bridge metadata, run `make generate` (or the narrower `make tfgen` / language targets per `make help`) and commit the generated files as appropriate for your workflow.

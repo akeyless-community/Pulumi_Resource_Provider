@@ -1,6 +1,19 @@
 # Pulumi Akeyless provider
 
-[Pulumi](https://www.pulumi.com/) provider for managing [Akeyless](https://www.akeyless.io/) resources. It is bridged from the open-source [terraform-provider-akeyless](https://github.com/akeyless-community/terraform-provider-akeyless) (Terraform provider API and behavior; MPL 2.0). Report provider-specific issues here first; for upstream behavior gaps, see that repository.
+[Pulumi](https://www.pulumi.com/) provider for managing [Akeyless](https://www.akeyless.io/) resources. It is bridged from the open-source [terraform-provider-akeyless](https://github.com/akeyless-community/terraform-provider-akeyless) (Terraform provider API and behavior; MPL 2.0). Report provider-specific issues in this repository first; for upstream behavior gaps, see that repository.
+
+## Source, security, and contributing
+
+| | |
+|--|--|
+| **Repository** | [github.com/akeyless-community/Pulumi_Resource_Provider](https://github.com/akeyless-community/Pulumi_Resource_Provider) |
+| **Security** | [SECURITY.md](SECURITY.md) (use GitHub private vulnerability reporting when possible) |
+| **Contributing** | [CONTRIBUTING.md](CONTRIBUTING.md) |
+| **Code of conduct** | [CODE-OF-CONDUCT.md](CODE-OF-CONDUCT.md) |
+
+### Go module path
+
+The Go SDK uses the import path **`github.com/akeyless-community/pulumi-akeyless/sdk/go/akeyless`** (see `sdk/go.mod`). That path is what `go get` and the module proxy expect. For a frictionless public `go get` without `replace` directives, the GitHub repository is usually named **`pulumi-akeyless`** so the repo URL matches the module path; GitHub redirects after a rename. If you keep **`Pulumi_Resource_Provider`** as the repo name, clone from GitHub and use a `replace` in your project `go.mod`, or build from this tree, until you align names.
 
 ## Requirements
 
@@ -10,7 +23,7 @@
 
 ## Installing (published packages)
 
-When published to npm, PyPI, NuGet, and the Go module proxy, use:
+**Status:** SDK packages are **not** published to npm / PyPI / NuGet under the names below yet. Use [Building from source](#building-from-source) and the [examples](#examples-and-smoke-testing) until you run a release. When published, install with:
 
 ### Node.js (TypeScript / JavaScript)
 

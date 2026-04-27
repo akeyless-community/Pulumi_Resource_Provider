@@ -7,7 +7,7 @@
         "category/cloud"
     ],
     "homepage": "https://www.akeyless.io",
-    "repository": "https://github.com/akeyless-community/pulumi-akeyless",
+    "repository": "https://github.com/akeyless-community/Pulumi_Resource_Provider",
     "license": "Apache-2.0",
     "scripts": {
         "build": "tsc"
