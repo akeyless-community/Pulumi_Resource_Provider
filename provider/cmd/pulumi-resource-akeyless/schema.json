@@ -10,6 +10,7 @@
     "license": "Apache-2.0",
     "attribution": "This Pulumi package is based on the [`akeyless` Terraform Provider](https://github.com/akeyless-community/terraform-provider-akeyless).",
     "repository": "https://github.com/akeyless-community/pulumi-akeyless",
+    "pluginDownloadURL": "github://api.github.com/akeyless-community/pulumi-akeyless",
     "publisher": "Akeyless Community",
     "meta": {
         "moduleFormat": "(.*)(?:/[^/]*)"

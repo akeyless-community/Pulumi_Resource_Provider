@@ -173,6 +173,7 @@ namespace Pulumi.Akeyless
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                PluginDownloadURL = "github://api.github.com/akeyless-community/pulumi-akeyless",
                 AdditionalSecretOutputs =
                 {
                     "mysqlPassword",

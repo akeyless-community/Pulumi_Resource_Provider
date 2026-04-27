@@ -1,5 +1,6 @@
 {
   "resource": true,
   "name": "akeyless",
-  "version": "1.0.0-alpha.0+dev"
+  "version": "1.0.0-alpha.0+dev",
+  "server": "github://api.github.com/akeyless-community/pulumi-akeyless"
 }

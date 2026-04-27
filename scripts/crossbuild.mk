@@ -81,5 +81,5 @@ provider_dist-darwin-amd64: bin/$(PROVIDER)-v$(PROVIDER_VERSION)-darwin-amd64.ta
 provider_dist-darwin-arm64: bin/$(PROVIDER)-v$(PROVIDER_VERSION)-darwin-arm64.tar.gz
 provider_dist-windows-amd64: bin/$(PROVIDER)-v$(PROVIDER_VERSION)-windows-amd64.tar.gz
 provider_dist-windows-arm64: bin/$(PROVIDER)-v$(PROVIDER_VERSION)-windows-arm64.tar.gz
-provider_dist: provider_dist-linux-amd64 provider_dist-linux-arm64 provider_dist-darwin-amd64 provider_dist-darwin-arm64 provider_dist-windows-amd64
+provider_dist: provider_dist-linux-amd64 provider_dist-linux-arm64 provider_dist-darwin-amd64 provider_dist-darwin-arm64 provider_dist-windows-amd64 provider_dist-windows-arm64
 .PHONY: provider_dist-linux-amd64 provider_dist-linux-arm64 provider_dist-darwin-amd64 provider_dist-darwin-arm64 provider_dist-windows-amd64 provider_dist

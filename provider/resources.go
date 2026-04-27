@@ -119,10 +119,9 @@ func Provider() tfbridge.ProviderInfo {
 		// You may host a logo on a domain you control or add an PNG logo (100x100) for your package
 		// in your repository and use the raw content URL for that file as your logo URL.
 		LogoURL: "",
-		// PluginDownloadURL is an optional URL used to download the Provider
-		// for use in Pulumi programs
-		// e.g. https://github.com/org/pulumi-provider-name/releases/download/v${VERSION}/
-		PluginDownloadURL: "",
+		// PluginDownloadURL tells the Pulumi CLI where to fetch the provider binary.
+		// github:// form resolves to GitHub Release assets on tag v${VERSION} (Pulumi CLI >= 3.35.3).
+		PluginDownloadURL: "github://api.github.com/akeyless-community/pulumi-akeyless",
 		Description:       "A Pulumi package for creating and managing akeyless cloud resources.",
 		// category/cloud tag helps with categorizing the package in the Pulumi Registry.
 		// For all available categories, see `Keywords` in

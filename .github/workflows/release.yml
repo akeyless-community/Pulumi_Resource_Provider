@@ -1,0 +1,61 @@
+# When you push an annotated or lightweight tag matching v* (e.g. v0.1.0), this workflow
+# cross-builds the provider, produces six .tar.gz archives, and uploads them to the
+# GitHub Release for that tag. No manual upload is required.
+name: Release provider
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version-file: provider/go.mod
+          cache-dependency-path: provider/go.sum
+
+      - name: Version from tag
+        id: v
+        run: |
+          TAG="${GITHUB_REF#refs/tags/}"
+          if [[ ! "$TAG" =~ ^v ]]; then
+            echo "Tag must start with v (e.g. v0.1.0)"; exit 1
+          fi
+          VER="${TAG#v}"
+          echo "tag=$TAG" >> "$GITHUB_OUTPUT"
+          echo "version=$VER" >> "$GITHUB_OUTPUT"
+          echo "Releasing $TAG (PROVIDER_VERSION=$VER)"
+
+      - name: Build provider archives
+        env:
+          SKIP_SIGNING: "true"
+          CGO_ENABLED: "0"
+        run: make provider_dist PROVIDER_VERSION=${{ steps.v.outputs.version }}
+
+      - name: List artifacts
+        run: ls -la bin/*.tar.gz
+
+      - name: Create GitHub Release and upload .tar.gz assets
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.v.outputs.tag }}
+          name: ${{ steps.v.outputs.tag }}
+          files: bin/pulumi-resource-akeyless-*.tar.gz
+          fail_on_unmatched_files: true
+          generate_release_notes: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

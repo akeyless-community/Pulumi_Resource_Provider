@@ -10,6 +10,7 @@
 | **Security** | [SECURITY.md](SECURITY.md) (use GitHub private vulnerability reporting when possible) |
 | **Contributing** | [CONTRIBUTING.md](CONTRIBUTING.md) |
 | **Code of conduct** | [CODE-OF-CONDUCT.md](CODE-OF-CONDUCT.md) |
+| **Releasing** | [RELEASING.md](RELEASING.md) (tag, GitHub Release, tokens, registry PR) |
 
 ### Go module path
 
@@ -80,7 +81,7 @@ Configure the `akeyless` provider with Pulumi config (recommended for secrets) o
 - **`akeyless:apiGatewayAddress`** — API gateway origin URL (scheme, host, port). Environment variable **`AKEYLESS_GATEWAY`** is often used for the same value (default in many setups is `https://api.akeyless.io`).
 - **`akeyless:apiKeyLogins`** — List of objects with `accessId` and `accessKey` (mark `accessKey` as secret). Aligns with API key authentication in Akeyless.
 
-The schema also supports other authentication blocks (AWS IAM, Azure AD, GCP, JWT, certificate, token, Universal Identity, email). See the [Pulumi Registry API docs](https://www.pulumi.com/registry/packages/akeyless/api-docs/) for the full provider configuration model.
+The schema also supports other authentication blocks (AWS IAM, Azure AD, GCP, JWT, certificate, token, Universal Identity, email). After the package is listed on the Pulumi Registry, see the [provider API reference](https://www.pulumi.com/registry/packages/akeyless/api-docs/provider/) for the full configuration model; until then, use the [Terraform provider argument reference](https://registry.terraform.io/providers/akeyless-community/akeyless/latest/docs) as a parallel guide.
 
 Environment variable names for API key auth (**`AKEYLESS_ACCESS_ID`**, **`AKEYLESS_ACCESS_KEY`**) match the [Akeyless Terraform provider documentation](https://registry.terraform.io/providers/akeyless-community/akeyless/latest/docs).
 
@@ -108,9 +109,51 @@ pulumi destroy
 
 Integration tests (Go) live in `examples/`; they are skipped unless `AKEYLESS_ACCESS_ID` and `AKEYLESS_ACCESS_KEY` are set. See [examples/SMOKE.md](examples/SMOKE.md) for `go test` invocations.
 
+## Releases, GitHub assets, and Pulumi Registry
+
+**Step-by-step (push, tag, CI upload, npm/PyPI/NuGet tokens):** [RELEASING.md](RELEASING.md). Pushing a tag like `v0.1.0` triggers [.github/workflows/release.yml](.github/workflows/release.yml), which builds and **uploads the six provider `.tar.gz` files** to that GitHub Release automatically.
+
+The schema sets **`pluginDownloadURL`** to `github://api.github.com/akeyless-community/pulumi-akeyless`, so the Pulumi CLI downloads provider binaries from **GitHub Releases** on this repository (CLI 3.35.3+). The release **tag** must be **`vMAJOR.MINOR.PATCH`** (for example **`v0.1.0`**), matching the version baked into the published SDKs and plugin archives without the leading `v` in the archive basename.
+
+### GitHub Release assets (example `v0.1.0`)
+
+From a clean tree at the release commit, build archives (**version must not include a leading `v` in `PROVIDER_VERSION`**):
+
+```bash
+make provider_dist PROVIDER_VERSION=0.1.0
+```
+
+Attach **all** of these files from `bin/` to the GitHub Release for tag `v0.1.0` (six platforms):
+
+| Asset |
+|-------|
+| `pulumi-resource-akeyless-v0.1.0-linux-amd64.tar.gz` |
+| `pulumi-resource-akeyless-v0.1.0-linux-arm64.tar.gz` |
+| `pulumi-resource-akeyless-v0.1.0-darwin-amd64.tar.gz` |
+| `pulumi-resource-akeyless-v0.1.0-darwin-arm64.tar.gz` |
+| `pulumi-resource-akeyless-v0.1.0-windows-amd64.tar.gz` |
+| `pulumi-resource-akeyless-v0.1.0-windows-arm64.tar.gz` |
+
+Each archive contains the `pulumi-resource-akeyless` binary at the root (plus `README.md` and `LICENSE` per the Makefile), which matches [Pulumi’s executable plugin layout](https://www.pulumi.com/docs/iac/guides/building-extending/packages/executable-plugin/). Optional extras such as a `SHA256SUMS` file are not required for the CLI.
+
+**Suggested release order:** (1) set `PROVIDER_VERSION=0.1.0` and run `make generate` (or `make build`) so SDK metadata matches; (2) commit generated outputs; (3) tag `v0.1.0` and push; (4) run `make provider_dist PROVIDER_VERSION=0.1.0` and upload the six `.tar.gz` files; (5) publish npm / PyPI / NuGet packages (requires maintainer credentials; the generated Node and .NET package names are `@pulumi/akeyless` and `Pulumi.Akeyless` — confirm you can publish to those registries or change the package names in `provider/resources.go` and regenerate); (6) for Go, consumers use the **`sdk` module**, for example `go get github.com/akeyless-community/pulumi-akeyless/sdk@v0.1.0`.
+
+### Listing on the Pulumi Registry
+
+This repo includes **`docs/_index.md`** and **`docs/installation-configuration.md`** for registry docs. To appear on [pulumi.com/registry](https://www.pulumi.com/registry/), open a pull request against **[pulumi/registry](https://github.com/pulumi/registry)** that adds one object to `community-packages/package-list.json` (alphabetical order by `repoSlug` is conventional), for example:
+
+```json
+{
+  "repoSlug": "akeyless-community/pulumi-akeyless",
+  "schemaFile": "provider/cmd/pulumi-resource-akeyless/schema.json"
+}
+```
+
+Pulumi’s team reviews community additions; you do not need hosting beyond GitHub.
+
 ## Continuous integration
 
-This repository does not run **GitHub Actions** workflows in CI. Build and test locally (for example `make build`, `make test_provider`, and the integration tests described in [examples/SMOKE.md](examples/SMOKE.md)). You can add your own `.github/workflows` later if you want automated builds.
+Build and test locally (`make build`, `make test_provider`, [examples/SMOKE.md](examples/SMOKE.md)). **Tag pushes** run [`.github/workflows/release.yml`](.github/workflows/release.yml) to attach provider binaries to GitHub Releases. Add other workflows if you want pull-request CI or SDK publishing.
 
 ## Repository layout
 
