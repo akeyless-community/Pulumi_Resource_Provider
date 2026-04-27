@@ -174,7 +174,7 @@ build_nodejs: .make/build_nodejs
 			npm install && npm run build; \
 		fi && \
 		cp ../../README.md ../../LICENSE package.json ./bin/ && \
-		for lock in yarn.lock package-lock.json; do test -f $$lock && cp $$lock ./bin/; done
+		for lock in yarn.lock package-lock.json; do if test -f $$lock; then cp $$lock ./bin/; fi; done
 	@touch $@
 .PHONY: generate_nodejs build_nodejs
 
