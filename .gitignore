@@ -41,5 +41,7 @@ go.work.sum
 # Ignore local build tracking directory
 .make
 
+provider/coverage.txt
+
 # Go test binary from `go test -c` in examples/
 examples/examples.test
