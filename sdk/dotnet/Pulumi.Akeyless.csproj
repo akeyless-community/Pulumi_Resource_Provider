@@ -7,7 +7,7 @@
     <Description>A Pulumi package for creating and managing akeyless cloud resources.</Description>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <PackageProjectUrl>https://www.akeyless.io</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/akeyless-community/Pulumi_Resource_Provider</RepositoryUrl>
+    <RepositoryUrl>https://github.com/akeyless-community/pulumi-akeyless</RepositoryUrl>
     <PackageIcon>logo.png</PackageIcon>
     <Version>1.0.0-alpha.0+dev</Version>
 

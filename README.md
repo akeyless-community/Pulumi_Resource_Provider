@@ -6,14 +6,14 @@
 
 | | |
 |--|--|
-| **Repository** | [github.com/akeyless-community/Pulumi_Resource_Provider](https://github.com/akeyless-community/Pulumi_Resource_Provider) |
+| **Repository** | [github.com/akeyless-community/pulumi-akeyless](https://github.com/akeyless-community/pulumi-akeyless) |
 | **Security** | [SECURITY.md](SECURITY.md) (use GitHub private vulnerability reporting when possible) |
 | **Contributing** | [CONTRIBUTING.md](CONTRIBUTING.md) |
 | **Code of conduct** | [CODE-OF-CONDUCT.md](CODE-OF-CONDUCT.md) |
 
 ### Go module path
 
-The Go SDK uses the import path **`github.com/akeyless-community/pulumi-akeyless/sdk/go/akeyless`** (see `sdk/go.mod`). That path is what `go get` and the module proxy expect. For a frictionless public `go get` without `replace` directives, the GitHub repository is usually named **`pulumi-akeyless`** so the repo URL matches the module path; GitHub redirects after a rename. If you keep **`Pulumi_Resource_Provider`** as the repo name, clone from GitHub and use a `replace` in your project `go.mod`, or build from this tree, until you align names.
+The Go SDK import path is **`github.com/akeyless-community/pulumi-akeyless/sdk/go/akeyless`**, matching this repository (**[akeyless-community/pulumi-akeyless](https://github.com/akeyless-community/pulumi-akeyless)**).
 
 ## Requirements
 

@@ -1,6 +1,6 @@
 # Akeyless Resource Provider
 
-The Akeyless Resource Provider lets you manage [Akeyless](http://example.com) resources.
+The Akeyless Resource Provider lets you manage [Akeyless](https://www.akeyless.io) resources.
 
 ## Installing
 
@@ -33,7 +33,7 @@ pip install pulumi_akeyless
 To use from Go, use `go get` to grab the latest version of the library:
 
 ```bash
-go get github.com/pulumi/pulumi-akeyless/sdk/go/...
+go get github.com/akeyless-community/pulumi-akeyless/sdk/go/akeyless
 ```
 
 ### .NET

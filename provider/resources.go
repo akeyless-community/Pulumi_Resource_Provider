@@ -130,7 +130,7 @@ func Provider() tfbridge.ProviderInfo {
 		Keywords:   []string{"akeyless", "category/cloud"},
 		License:    "Apache-2.0",
 		Homepage:   "https://www.akeyless.io",
-		Repository: "https://github.com/akeyless-community/Pulumi_Resource_Provider",
+		Repository: "https://github.com/akeyless-community/pulumi-akeyless",
 		// The GitHub Org for the provider - defaults to `terraform-providers`. Note that this should
 		// match the TF provider module's require directive, not any replace directives.
 		GitHubOrg:    "akeyless-community",

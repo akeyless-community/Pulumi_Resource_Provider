@@ -10,7 +10,7 @@
     text = "Apache-2.0"
   [project.urls]
     Homepage = "https://www.akeyless.io"
-    Repository = "https://github.com/akeyless-community/Pulumi_Resource_Provider"
+    Repository = "https://github.com/akeyless-community/pulumi-akeyless"
 
 [build-system]
   requires = ["setuptools>=61.0"]
