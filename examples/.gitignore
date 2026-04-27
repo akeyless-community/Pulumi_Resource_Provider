@@ -1,4 +1,5 @@
 .pulumi/
 **/bin/
 node_modules/
+basic-ts/package-lock.json
 
