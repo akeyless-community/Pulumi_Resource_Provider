@@ -80,12 +80,11 @@ Under `examples/`:
 
 End-to-end notes, required permissions, and automation with **`AKEYLESS_SMOKE_PARENT_PATH`** (for path-scoped roles) are documented in [examples/SMOKE.md](examples/SMOKE.md).
 
-Quick manual check after `make build`:
+Quick manual check after `make build` (the example depends on the **local** SDK at `sdk/nodejs/bin`, not the npm registry):
 
 ```bash
 cd examples/basic-ts
 npm install
-npm install "file:$(cd ../.. && pwd)/sdk/nodejs/bin" --save
 export AKEYLESS_ACCESS_ID="..." AKEYLESS_ACCESS_KEY="..."
 # If your role only allows writes under a specific folder:
 export AKEYLESS_SMOKE_PARENT_PATH="/your/allowed/parent/path"

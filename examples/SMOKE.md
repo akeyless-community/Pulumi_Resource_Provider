@@ -43,14 +43,15 @@ make build
 
 ## TypeScript (`basic-ts`)
 
-Pulumi’s `ProgramTest` copies the app to a temp directory, so **never** use a relative `file:../../...` for the SDK there. The Go test uses **`Overrides`** to rewrite `package.json` / Yarn resolutions to an absolute `file:/.../sdk/nodejs/bin` before `yarn install`.
+`package.json` uses **`file:../../sdk/nodejs/bin`** so `npm install` works from the repo after `make build` (the package is not published to npm as `@pulumi/akeyless` yet).
 
-`package.json` lists `@pulumi/akeyless` as `0.0.0` as a placeholder; integration tests replace it with the real path. For a **manual** run, point it at the built SDK:
+Pulumi’s `ProgramTest` copies the app to a temp directory, so a relative `file:../../...` would break there. The Go integration test uses **`Overrides`** to rewrite `package.json` to an absolute `file:/.../sdk/nodejs/bin` before `yarn install`.
+
+**Manual run:**
 
 ```bash
 cd examples/basic-ts
 npm install
-npm install "file:$(cd ../.. && pwd)/sdk/nodejs/bin" --save
 export AKEYLESS_ACCESS_ID="..." AKEYLESS_ACCESS_KEY="..."
 export AKEYLESS_SMOKE_PARENT_PATH="/path/your-role-may-write"   # if required by your role
 pulumi stack init dev
